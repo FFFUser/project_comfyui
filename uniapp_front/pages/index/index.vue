@@ -4,6 +4,9 @@
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 		</view>
+		<navigator class="nav-gen" url="/pages/generate/generate" open-type="navigate">
+			<button type="primary" size="default">进入图片生产</button>
+		</navigator>
 	</view>
 </template>
 
@@ -48,5 +51,11 @@
 	.title {
 		font-size: 36rpx;
 		color: #8f8f94;
+	}
+
+	.nav-gen {
+		margin-top: 48rpx;
+		width: 80%;
+		max-width: 400rpx;
 	}
 </style>

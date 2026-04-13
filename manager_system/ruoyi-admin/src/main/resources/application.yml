@@ -13,6 +13,19 @@ ruoyi:
   # 获取ip地址开关
   addressEnabled: false
 
+# ComfyUI：调用 manager_system/comfyUI_python/run_workflow.py（入参 imageUrl1/2 → --image-41 / --image-83）
+comfyui:
+  # Windows 可改为 py、或 python3、或完整路径
+  python-executable: python
+  # 为空则自动探测：user.dir 下 comfyUI_python、上一级 comfyUI_python、或 manager_system/comfyUI_python（适配从 manager_system / ruoyi-admin / 仓库根启动）
+  python-script-dir: ""
+  # 与命令行 --cloud 一致；本地 ComfyUI 可改为 false
+  cloud-enabled: true
+  # 单次生成最长等待（秒）
+  process-timeout-seconds: 900
+  # Comfy Cloud API Key；也可用环境变量 COMFY_CLOUD_API_KEY（生产建议勿写入仓库，用部署环境覆盖）
+  cloud-api-key: comfyui-4563e21eee9a43fe2ef5ccdc4db49b8ac85cd46eab5870a57a6df603f4ea4078
+
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为80
@@ -20,6 +33,11 @@ server:
   servlet:
     # 应用的访问路径
     context-path: /
+    # 请求/响应统一 UTF-8，避免中文乱码
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
   tomcat:
     # tomcat的URI编码
     uri-encoding: UTF-8
@@ -140,8 +158,8 @@ xss:
 csrf:
   # 过滤开关
   enabled: false
-  # 白名单（多个用逗号分隔）
-  whites: /druid
+  # 白名单（多个用逗号分隔）；开启 csrf 后 POST /comfyui/* 需加入白名单才能匿名调用
+  whites: /druid,/comfyui/**
 
 # Swagger配置
 swagger:

@@ -453,13 +453,25 @@ async def run_comfy_cloud(
         while time.monotonic() < deadline:
             sr = await client.get(f"{CLOUD_BASE_URL}/api/job/{prompt_id}/status")
             _cloud_raise_for_status(sr)
-            status = (sr.json() or {}).get("status")
+            payload = sr.json() or {}
+            status = payload.get("status")
             log.info("Cloud job status: %s", status)
             # Cloud API returns "success" when done; older/alternate docs use "completed"
             if status in ("completed", "success"):
                 break
-            if status in ("failed", "cancelled"):
-                raise RuntimeError(f"Comfy Cloud job {prompt_id} status={status!r}")
+            # "error" is a terminal state (same as failed); do not keep polling until timeout
+            if status in ("failed", "cancelled", "error"):
+                extra = {k: v for k, v in payload.items() if k != "status"}
+                detail = (
+                    payload.get("message")
+                    or payload.get("error")
+                    or payload.get("detail")
+                    or (extra if extra else None)
+                )
+                raise RuntimeError(
+                    f"Comfy Cloud job {prompt_id} status={status!r}"
+                    + (f": {detail!r}" if detail is not None else "")
+                )
             await asyncio.sleep(poll_interval)
         else:
             raise TimeoutError(

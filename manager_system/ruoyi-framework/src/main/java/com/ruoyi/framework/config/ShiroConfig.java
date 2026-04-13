@@ -314,6 +314,10 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/ruoyi/**", "anon");
         filterChainDefinitionMap.put("/captcha/captchaImage**", "anon");
+        // 上传文件映射路径（ResourcesConfig：/profile/** -> ruoyi.profile），需匿名否则浏览器直接打开 URL 会跳登录页
+        filterChainDefinitionMap.put("/profile/**", "anon");
+        // ComfyUI 开放接口（匿名、免登录）
+        filterChainDefinitionMap.put("/comfyui/**", "anon");
         // 匿名访问不鉴权注解列表
         List<String> permitAllUrl = SpringUtils.getBean(PermitAllUrlProperties.class).getUrls();
         if (StringUtils.isNotEmpty(permitAllUrl))
