@@ -1,12 +1,26 @@
 <template>
 	<view class="page">
-		<scroll-view scroll-y class="scroll" :style="{ height: scrollHeight + 'px' }">
+		<view class="content" :style="{ height: contentHeight + 'px' }">
 			<view class="hero">
-				<image class="hero-image" :src="work.hero" mode="widthFix" />
+				<swiper
+					class="hero-swiper"
+					:current="currentImage"
+					:duration="300"
+					@change="onImageChange"
+				>
+					<swiper-item v-for="(src, i) in work.gallery" :key="i">
+						<image class="hero-image" :src="src" mode="aspectFill" />
+					</swiper-item>
+				</swiper>
 			</view>
 			<view class="detail-panel">
 				<view class="dots">
-					<view v-for="n in 5" :key="n" class="dot" :class="{ active: n === 2 }" />
+					<view
+						v-for="(_, i) in work.gallery"
+						:key="i"
+						class="dot"
+						:class="{ active: i === currentImage }"
+					/>
 				</view>
 				<text class="title">{{ work.title }}</text>
 				<text class="desc">{{ work.desc }}</text>
@@ -19,7 +33,7 @@
 				</view>
 				<text class="publish">{{ work.publishTime }}</text>
 			</view>
-		</scroll-view>
+		</view>
 		<view class="top-nav" :style="{ paddingTop: statusBarHeight + 'px' }">
 			<view class="nav-inner">
 				<view class="back-btn" @click="onBack"><text>‹</text></view>
@@ -43,27 +57,33 @@
 			return {
 				work: WORK_DETAIL,
 				statusBarHeight: 20,
-				scrollHeight: 500
+				contentHeight: 500,
+				currentImage: 0
 			}
 		},
 		onLoad() {
 			const sys = uni.getSystemInfoSync()
 			this.statusBarHeight = sys.statusBarHeight || 20
-			this.scrollHeight = sys.windowHeight - 85
+			const footerH = Math.round(168 * sys.windowWidth / 750) + (sys.safeAreaInsets?.bottom || 0)
+			this.contentHeight = sys.windowHeight - footerH
 		},
 		methods: {
 			onBack() {
 				uni.navigateBack({ fail: () => uni.reLaunch({ url: '/pages/home/home' }) })
+			},
+			onImageChange(e) {
+				this.currentImage = e.detail.current
 			}
 		}
 	}
 </script>
 
 <style scoped>
-	.page { min-height: 100vh; background: #fff; }
-	.scroll { padding-bottom: 170rpx; }
-	.hero { width: 100%; }
-	.hero-image { width: 100%; display: block; }
+	.page { height: 100vh; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+	.content { display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0; }
+	.hero { flex: 1; min-height: 0; width: 100%; }
+	.hero-swiper { width: 100%; height: 100%; }
+	.hero-image { width: 100%; height: 100%; display: block; }
 	.detail-panel { padding: 48rpx 40rpx; background: #fff; border-radius: 32rpx 32rpx 0 0; margin-top: -32rpx; position: relative; }
 	.dots { display: flex; justify-content: center; gap: 8rpx; margin-bottom: 32rpx; }
 	.dot { width: 12rpx; height: 12rpx; background: #ece8e1; border-radius: 50%; }

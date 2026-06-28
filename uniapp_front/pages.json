@@ -118,7 +118,9 @@
 
 				"navigationStyle": "custom",
 
-				"navigationBarTitleText": "作品详情"
+				"navigationBarTitleText": "作品详情",
+
+				"disableScroll": true
 
 			}
 

@@ -140,5 +140,6 @@ export const WORK_DETAIL = {
 	author: '张馨予私宅设计',
 	publishTime: '发布于 昨天 12:57 杭州',
 	hero: ASSETS.workDetail.hero,
+	gallery: ASSETS.workDetail.gallery,
 	authorAvatar: ASSETS.designerProfile.avatar
 }

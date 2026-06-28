@@ -76,6 +76,13 @@ export const ASSETS = {
 		]
 	},
 	workDetail: {
-		hero: '/static/qiju/work-detail/hero.jpg'
+		hero: '/static/qiju/work-detail/hero.jpg',
+		gallery: [
+			'/static/qiju/work-detail/hero.jpg',
+			'/static/qiju/case-detail/gallery-1.jpg',
+			'/static/qiju/case-detail/gallery-2.jpg',
+			'/static/qiju/case-detail/gallery-3.jpg',
+			'/static/qiju/case-detail/gallery-4.jpg'
+		]
 	}
 }
