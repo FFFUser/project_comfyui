@@ -1,7 +1,14 @@
 <template>
 	<view class="case-card" @click="$emit('click')">
 		<view class="cover-wrap">
-			<image v-if="item.cover" class="cover-img" :src="item.cover" mode="aspectFill" />
+			<image
+				v-if="item.cover && !imgError"
+				class="cover-img"
+				:src="item.cover"
+				mode="aspectFill"
+				:lazy-load="false"
+				@error="onImgError"
+			/>
 			<view v-else class="cover" :style="{ background: coverColor }" />
 			<text v-if="item.badge" class="badge">{{ item.badge }}</text>
 		</view>
@@ -34,6 +41,19 @@
 			item: { type: Object, required: true },
 			index: { type: Number, default: 0 }
 		},
+		data() {
+			return {
+				imgError: false
+			}
+		},
+		watch: {
+			'item.id'() {
+				this.imgError = false
+			},
+			'item.cover'() {
+				this.imgError = false
+			}
+		},
 		computed: {
 			coverColor() {
 				return COLORS[this.index % COLORS.length]
@@ -42,6 +62,11 @@
 				if (this.item.color) return { background: this.item.color }
 				if (this.item.initials) return { background: '#0052d9' }
 				return { background: '#ece8e1' }
+			}
+		},
+		methods: {
+			onImgError() {
+				this.imgError = true
 			}
 		}
 	}
@@ -64,7 +89,10 @@
 	.cover,
 	.cover-img {
 		position: absolute;
-		inset: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		width: 100%;
 		height: 100%;
 	}

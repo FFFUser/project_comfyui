@@ -10,7 +10,7 @@ export const DIRECT_CASES = [
 	{ id: 1, title: '静安现代简装项目', meta: '现代简约 | 143平米 | 上海市', team: '张师傅团队', likes: '1.2w', price: '¥4.2w', badge: '顾家', cover: ASSETS.home.cases[0] },
 	{ id: 2, title: '天山路老房改造', meta: '老房改造 | 62平米 | 上海市', team: '李师傅', likes: '8.9k', price: '¥2.8w', badge: '顾家', cover: ASSETS.home.cases[1], initials: 'LS' },
 	{ id: 3, title: '徐汇区旧屋翻新', meta: '意式轻奢 | 210平米 | 杭州市', team: '王工', likes: '5.6k', price: '¥3.5w', badge: '顾家', cover: ASSETS.home.cases[2] },
-	{ id: 4, title: '滨江壹号院软装', meta: '法式浪漫 | 158平米 | 南京市', team: '陈工', likes: '3.2k', price: '¥5.8w', badge: '顾家', cover: ASSETS.home.cases[3], initials: 'CG' },
+	{ id: 4, title: '滨江壹号院软装', meta: '法式浪漫 | 158平米 | 南京市', team: '陈工', likes: '3.2k', price: '¥5.8w', badge: '顾家', cover: ASSETS.home.cases[4], initials: 'CG' },
 	{ id: 5, title: '虹桥路二手房翻新', meta: '现代简约 | 89平米 | 北京市', team: '赵工', likes: '2.1k', price: '¥1.9w', badge: '顾家', cover: ASSETS.home.cases[4], initials: 'ZG' },
 	{ id: 6, title: '静安府大平层设计', meta: '现代简约 | 512平米 | 上海市', team: '刘工', likes: '9.8k', price: '¥12.5w', badge: '顾家', cover: ASSETS.home.cases[5] },
 	{ id: 7, title: '老弄堂精致改造', meta: '全18集 | 复古 | 120万播放', team: '李师傅', likes: '6.5k', price: '¥4.8w', badge: '顾家', cover: ASSETS.home.cases[6], initials: 'LS' },

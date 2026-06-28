@@ -6,7 +6,7 @@
 				<view class="grid-btn">
 					<image class="grid-icon" :src="icons.searchGrid" mode="aspectFit" />
 				</view>
-				<view class="case-tabs">
+				<view class="case-tabs" :class="{ collapsed: searchOpen }">
 					<view class="case-tab-track">
 						<view class="case-tab-slider" :style="tabSliderStyle" />
 						<view
@@ -18,7 +18,18 @@
 						>{{ tab }}</view>
 					</view>
 				</view>
-				<view class="search-btn">
+				<view class="search-field" :class="{ open: searchOpen }">
+					<input
+						class="search-input"
+						v-model="searchKeyword"
+						:focus="searchFocus"
+						placeholder="搜索案例、设计师..."
+						confirm-type="search"
+						@confirm="onSearchConfirm"
+						@blur="onSearchBlur"
+					/>
+				</view>
+				<view class="search-btn" @click="toggleSearch">
 					<image class="search-icon" :src="icons.searchIcon" mode="aspectFit" />
 				</view>
 			</view>
@@ -94,7 +105,10 @@
 				activeTab: 0,
 				activeFilter: 0,
 				scrollHeight: 500,
-				showNoMore: [false, false, false]
+				showNoMore: [false, false, false],
+				searchOpen: false,
+				searchFocus: false,
+				searchKeyword: ''
 			}
 		},
 		computed: {
@@ -139,6 +153,34 @@
 					return
 				}
 				uni.navigateTo({ url: '/pages/case-detail/case-detail?id=' + item.id })
+			},
+			toggleSearch() {
+				if (this.searchOpen) {
+					this.closeSearch()
+					return
+				}
+				this.searchOpen = true
+				this.$nextTick(() => {
+					this.searchFocus = true
+				})
+			},
+			closeSearch() {
+				this.searchOpen = false
+				this.searchFocus = false
+				this.searchKeyword = ''
+			},
+			onSearchBlur() {
+				this.searchFocus = false
+				if (!this.searchKeyword.trim()) {
+					this.searchOpen = false
+				}
+			},
+			onSearchConfirm() {
+				if (!this.searchKeyword.trim()) {
+					this.closeSearch()
+					return
+				}
+				uni.showToast({ title: '搜索：' + this.searchKeyword, icon: 'none' })
 			}
 		}
 	}
@@ -192,6 +234,46 @@
 	.case-tabs {
 		flex: 1;
 		min-width: 0;
+		max-width: 100%;
+		opacity: 1;
+		overflow: hidden;
+		transition: max-width 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.24s ease, flex 0.32s ease;
+	}
+
+	.case-tabs.collapsed {
+		flex: 0;
+		max-width: 0;
+		opacity: 0;
+	}
+
+	.search-field {
+		flex: 0;
+		max-width: 0;
+		min-width: 0;
+		height: 64rpx;
+		opacity: 0;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		transform-origin: right center;
+		transition: max-width 0.32s cubic-bezier(0.4, 0, 0.2, 1), flex 0.32s ease, opacity 0.24s ease;
+	}
+
+	.search-field.open {
+		flex: 1;
+		max-width: 100%;
+		opacity: 1;
+	}
+
+	.search-input {
+		width: 100%;
+		height: 64rpx;
+		padding: 0 16rpx;
+		font-size: 24rpx;
+		color: #1c1c18;
+		background: rgba(255, 255, 255, 0.65);
+		border-radius: 16rpx;
+		box-sizing: border-box;
 	}
 
 	.case-tab-track {
@@ -238,7 +320,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-left: 8rpx;
 		border-radius: 16rpx;
 		flex-shrink: 0;
 	}
@@ -287,7 +368,8 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 8rpx;
-		padding: 0 4rpx 16rpx;
+		padding: 0 8rpx 16rpx;
+		box-sizing: border-box;
 	}
 
 	.list-footer {

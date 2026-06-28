@@ -41,9 +41,9 @@
 				basePaddingPx: 10,
 				tabs: [
 					{ key: 'home', label: '首页', icon: ICONS.navHome, iconActive: ICONS.navHomeActive },
-					{ key: 'workers', label: '工人', icon: ICONS.navWorkers, iconActive: ICONS.navWorkers },
-					{ key: 'designers', label: '设计师', icon: ICONS.navDesigners, iconActive: ICONS.navDesigners },
-					{ key: 'materials', label: '材料', icon: ICONS.navMaterials, iconActive: ICONS.navMaterials },
+					{ key: 'workers', label: '工人', icon: ICONS.navWorkers, iconActive: ICONS.navWorkersActive },
+					{ key: 'designers', label: '设计师', icon: ICONS.navDesigners, iconActive: ICONS.navDesignersActive },
+					{ key: 'materials', label: '材料', icon: ICONS.navMaterials, iconActive: ICONS.navMaterialsActive },
 					{ key: 'profile', label: '我的', icon: ICONS.navProfile, iconActive: ICONS.navProfileActive }
 				]
 			}
@@ -104,6 +104,10 @@
 	.nav-icon {
 		width: 32rpx;
 		height: 36rpx;
+	}
+
+	.nav-item.active .nav-icon {
+		opacity: 1;
 	}
 
 	.nav-item:not(.active) .nav-icon {
