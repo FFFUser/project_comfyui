@@ -2,6 +2,7 @@
 	<view class="page">
 		<TopAppBar variant="profile" />
 		<scroll-view scroll-y class="main" :bounces="false" :style="{ height: scrollHeight + 'px', width: '100%' }">
+			<view class="main-inner">
 			<view class="profile-header">
 				<view class="avatar-wrap">
 					<image class="avatar" :src="profileAvatar" mode="aspectFill" />
@@ -43,6 +44,8 @@
 					<button class="cta-btn">立即探索</button>
 				</view>
 			</view>
+			<view class="scroll-spacer" />
+			</view>
 		</scroll-view>
 		<BottomNavBar current="profile" />
 	</view>
@@ -83,7 +86,15 @@
 	.main {
 		box-sizing: border-box;
 		width: 100%;
+	}
+
+	.main-inner {
+		box-sizing: border-box;
 		padding: 32rpx 48rpx 0;
+	}
+
+	.scroll-spacer {
+		height: 64rpx;
 	}
 
 	.profile-header {
@@ -254,7 +265,6 @@
 		position: relative;
 		border-radius: 24rpx;
 		overflow: hidden;
-		margin-bottom: 32rpx;
 		min-height: 280rpx;
 	}
 

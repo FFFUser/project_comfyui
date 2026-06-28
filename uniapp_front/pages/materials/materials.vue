@@ -35,7 +35,7 @@
 		</scroll-view>
 
 		<scroll-view scroll-y class="main" :bounces="false" :style="{ height: scrollHeight + 'px', width: '100%' }">
-
+			<view class="main-inner">
 			<!-- 全部 -->
 
 			<template v-if="activeCat === 0">
@@ -170,6 +170,8 @@
 
 			</template>
 
+			<view class="scroll-spacer" />
+			</view>
 		</scroll-view>
 
 		<BottomNavBar current="materials" />
@@ -363,7 +365,15 @@
 		width: 100%;
 		max-width: 100%;
 		box-sizing: border-box;
+	}
+
+	.main-inner {
 		padding: 0 24rpx;
+		box-sizing: border-box;
+	}
+
+	.scroll-spacer {
+		height: 64rpx;
 	}
 
 	.bento {
