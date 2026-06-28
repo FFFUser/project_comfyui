@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<TopAppBar variant="home" />
-		<scroll-view scroll-x class="sub-tabs" :show-scrollbar="false">
+		<scroll-view scroll-x enhanced :show-scrollbar="false" class="sub-tabs">
 			<view class="sub-inner">
 				<text
 					v-for="(tab, i) in tabs"
@@ -12,15 +12,31 @@
 				>{{ tab }}</text>
 			</view>
 		</scroll-view>
-		<scroll-view scroll-y class="list" :bounces="false" :style="{ height: scrollHeight + 'px' }">
-			<WorkerCard
-				v-for="(w, i) in workers"
-				:key="w.id"
-				:worker="w"
-				:index="i"
-				@contact="onContact(w)"
-				@favorite="onFavorite(w)"
-			/>
+		<scroll-view
+			scroll-y
+			enhanced
+			:show-scrollbar="false"
+			:bounces="false"
+			:lower-threshold="80"
+			:scroll-top="scrollTop"
+			class="list"
+			:style="{ height: scrollHeight + 'px' }"
+			@scroll="onListScroll"
+			@scrolltolower="onScrollToLower"
+		>
+			<view class="list-inner">
+				<WorkerCard
+					v-for="(w, i) in displayWorkers"
+					:key="w.id"
+					:worker="w"
+					:index="i"
+					@contact="onContact(w)"
+					@favorite="onFavorite(w)"
+				/>
+				<view v-if="showListFooter" class="list-footer">
+					<text class="list-footer-text">没有更多工人了~</text>
+				</view>
+			</view>
 		</scroll-view>
 		<BottomNavBar current="workers" />
 	</view>
@@ -38,9 +54,32 @@
 		data() {
 			return {
 				tabs: WORKER_TABS,
-				workers: WORKERS,
+				allWorkers: WORKERS,
 				activeTab: 0,
-				scrollHeight: 500
+				scrollHeight: 500,
+				showNoMore: false,
+				scrollTop: 0,
+				scrollTopCache: 0
+			}
+		},
+		computed: {
+			displayWorkers() {
+				if (this.activeTab === 0) return this.allWorkers
+				const category = this.tabs[this.activeTab]
+				return this.allWorkers.filter(w => w.category === category)
+			},
+			showListFooter() {
+				if (!this.displayWorkers.length) return true
+				return this.showNoMore
+			}
+		},
+		watch: {
+			activeTab() {
+				this.showNoMore = false
+				this.scrollTop = this.scrollTopCache
+				this.$nextTick(() => {
+					this.scrollTop = 0
+				})
 			}
 		},
 		onReady() {
@@ -49,6 +88,14 @@
 			this.scrollHeight = getScrollHeightPx(sys, subTabsHeight)
 		},
 		methods: {
+			onListScroll(e) {
+				this.scrollTopCache = e.detail.scrollTop
+			},
+			onScrollToLower() {
+				if (this.displayWorkers.length) {
+					this.showNoMore = true
+				}
+			},
 			onContact(w) {
 				uni.showToast({ title: '联系 ' + w.name, icon: 'none' })
 			},
@@ -75,5 +122,32 @@
 		content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
 		width: 32rpx; height: 6rpx; background: #003da6; border-radius: 3rpx;
 	}
-	.list { padding: 16rpx 48rpx; }
+	.list {
+		box-sizing: border-box;
+	}
+	/* #ifdef H5 */
+	.list {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+	.list::-webkit-scrollbar {
+		display: none;
+		width: 0;
+		height: 0;
+	}
+	/* #endif */
+	.list-inner {
+		padding: 8rpx 32rpx 16rpx;
+		box-sizing: border-box;
+	}
+	.list-footer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 32rpx 0 48rpx;
+	}
+	.list-footer-text {
+		font-size: 24rpx;
+		color: #969799;
+	}
 </style>

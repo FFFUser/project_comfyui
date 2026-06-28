@@ -17,4 +17,14 @@
 		background-color: #fdf9f2;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 	}
+
+	/* #ifdef MP-WEIXIN */
+	::-webkit-scrollbar {
+		display: none;
+		width: 0;
+		height: 0;
+		color: transparent;
+		background: transparent;
+	}
+	/* #endif */
 </style>

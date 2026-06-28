@@ -32,10 +32,24 @@ export const DESIGN_CASES = [
 export const WORKER_TABS = ['全部', '水电', '泥木', '油漆', '安装', '保洁', '其他']
 
 export const WORKERS = [
-	{ id: 1, name: '张建国', badge: '金牌师傅', exp: '15年经验 · 上海', tags: ['水电改造', '全屋布线', '强弱电'], featured: false, avatar: ASSETS.workers.avatars[0] },
-	{ id: 2, name: '李明亮', badge: '资深师傅', exp: '12年经验 · 上海', tags: ['泥木工程', '贴砖铺地', '防水'], featured: false, avatar: ASSETS.workers.avatars[1] },
-	{ id: 3, name: '王大海', badge: '明星师傅', exp: '18年经验 · 杭州', tags: ['微水泥', '岩板密缝', '高难度施工'], desc: '擅长高难度微水泥铺设与岩板密缝施工，曾参与多个样板房设计落地。', featured: true, avatar: ASSETS.workers.avatars[2] },
-	{ id: 4, name: '赵铁柱', badge: '优质师傅', exp: '10年经验 · 北京', tags: ['油漆', '艺术涂料', '墙面翻新'], featured: false, avatar: ASSETS.workers.avatars[3] }
+	{ id: 1, category: '水电', name: '张建国', badge: '金牌师傅', exp: '15年经验 · 上海', tags: ['水电改造', '全屋布线', '强弱电', '老房升级'], desc: '擅长全屋水电规划与强弱电布线，老房改造电路升级经验丰富，施工规范安全可靠。', featured: false, avatar: ASSETS.workers.avatars[0] },
+	{ id: 2, category: '泥木', name: '李明亮', badge: '资深师傅', exp: '12年经验 · 上海', tags: ['泥木工程', '贴砖铺地', '防水'], desc: '擅长泥木工程与瓷砖铺贴，防水工艺扎实，找平与密缝处理精细，交付品质稳定。', featured: false, avatar: ASSETS.workers.avatars[1] },
+	{ id: 3, category: '泥木', name: '王大海', badge: '明星师傅', exp: '18年经验 · 杭州', tags: ['微水泥', '岩板密缝', '高难度施工', '样板房落地'], desc: '擅长高难度微水泥铺设与岩板密缝施工，曾参与多个样板房设计落地。', featured: true, avatar: ASSETS.workers.avatars[2] },
+	{ id: 4, category: '油漆', name: '赵铁柱', badge: '优质师傅', exp: '10年经验 · 北京', tags: ['油漆', '艺术涂料', '墙面翻新'], desc: '擅长墙面翻新与艺术涂料施工，色彩搭配细腻，漆面平整耐久，旧墙改造效果显著。', featured: false, avatar: ASSETS.workers.avatars[3] },
+	{ id: 5, category: '水电', name: '陈国强', badge: '金牌工长', exp: '14年经验 · 上海', tags: ['强弱电', '智能家居', '全屋布线'], desc: '专注强弱电系统与智能家居布线，强弱电分离规范，弱电箱整理美观实用。', featured: false, avatar: ASSETS.workers.avatars[0] },
+	{ id: 6, category: '水电', name: '孙水路', badge: '资深师傅', exp: '11年经验 · 苏州', tags: ['水路改造', 'PPR焊接', '卫浴安装'], desc: '水路改造经验丰富，PPR 热熔焊接工艺稳定，卫浴五金安装精准无渗漏。', featured: false, avatar: ASSETS.workers.avatars[1] },
+	{ id: 7, category: '水电', name: '周明辉', badge: '优质师傅', exp: '9年经验 · 南京', tags: ['老房电路', '配电箱', '漏电保护'], desc: '老房电路升级改造专长，配电箱分路清晰，漏电保护配置合理，用电更安全。', featured: false, avatar: ASSETS.workers.avatars[2] },
+	{ id: 8, category: '水电', name: '吴德胜', badge: '金牌师傅', exp: '16年经验 · 杭州', tags: ['地暖铺设', '中央空调', '水电预埋'], desc: '地暖与中央空调水电预埋配合默契，预留点位准确，与后续工种衔接顺畅。', featured: false, avatar: ASSETS.workers.avatars[3] },
+	{ id: 9, category: '水电', name: '冯电工', badge: '精工师傅', exp: '13年经验 · 无锡', tags: ['开关插座', '灯具安装', '弱电布线'], desc: '开关插座定位精准，灯具安装牢固美观，弱电网络与监控布线一次到位。', featured: false, avatar: ASSETS.workers.avatars[0] },
+	{ id: 10, category: '水电', name: '韩水路', badge: '资深师傅', exp: '10年经验 · 宁波', tags: ['热水循环', '增压泵', '排水改造'], desc: '热水循环系统与增压泵安装经验丰富，排水坡度把控到位，下水通畅无异味。', featured: false, avatar: ASSETS.workers.avatars[1] },
+	{ id: 11, category: '泥木', name: '刘瓦工', badge: '金牌师傅', exp: '15年经验 · 上海', tags: ['瓷砖铺贴', '岩板安装', '密缝工艺'], desc: '大板岩板铺贴经验丰富，密缝工艺精细，阴阳角处理利落，砖面平整度高。', featured: false, avatar: ASSETS.workers.avatars[2] },
+	{ id: 12, category: '泥木', name: '马建军', badge: '资深师傅', exp: '13年经验 · 合肥', tags: ['木工定制', '吊顶造型', '石膏线'], desc: '吊顶造型与石膏线安装精细，木作收口干净利落，现场裁切误差控制严格。', featured: false, avatar: ASSETS.workers.avatars[3] },
+	{ id: 13, category: '泥木', name: '黄防水', badge: '优质师傅', exp: '11年经验 · 武汉', tags: ['卫生间防水', '闭水试验', '卷材防水'], desc: '卫生间与厨房防水施工规范，闭水试验一次通过率高，卷材与涂料工艺均熟练。', featured: false, avatar: ASSETS.workers.avatars[0] },
+	{ id: 14, category: '泥木', name: '郑贴砖', badge: '精工泥瓦', exp: '12年经验 · 成都', tags: ['地砖铺贴', '墙砖对缝', '找平工艺'], desc: '墙地砖对缝铺贴工整，地面找平平整度好，湿区与干区收口过渡自然。', featured: false, avatar: ASSETS.workers.avatars[1] },
+	{ id: 15, category: '泥木', name: '徐泥瓦', badge: '金牌工长', exp: '17年经验 · 重庆', tags: ['水泥砂浆', '砌墙粉墙', '地面找平'], desc: '砌墙垂直度把控严格，地面找平一次成型，水泥砂浆配合比稳定，基层牢固。', featured: false, avatar: ASSETS.workers.avatars[2] },
+	{ id: 16, category: '泥木', name: '朱木工', badge: '资深师傅', exp: '14年经验 · 广州', tags: ['橱柜安装', '木门安装', '踢脚线'], desc: '橱柜与木门安装经验丰富，踢脚线拼接无缝，柜体与墙面缝隙处理细腻。', featured: false, avatar: ASSETS.workers.avatars[3] },
+	{ id: 17, category: '安装', name: '林安装', badge: '优质师傅', exp: '8年经验 · 深圳', tags: ['灯具安装', '五金挂件', '窗帘轨道'], desc: '各类灯具与五金挂件安装熟练，窗帘轨道水平精准，现场保护意识强。', featured: false, avatar: ASSETS.workers.avatars[0] },
+	{ id: 18, category: '保洁', name: '何保洁', badge: '金牌师傅', exp: '6年经验 · 上海', tags: ['开荒保洁', '精细保洁', '玻璃清洁'], desc: '开荒与精细保洁流程规范，玻璃与不锈钢清洁无划痕，验收标准严格。', featured: false, avatar: ASSETS.workers.avatars[1] }
 ]
 
 export const MATERIAL_CATEGORIES = ['全部', '绿碳石材', '瓷砖', '地板', '涂料', '五金', '灯具', '软装', '其他']
