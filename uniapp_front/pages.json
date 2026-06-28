@@ -1,23 +1,156 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+
+	"pages": [
+
 		{
-			"path": "pages/index/index",
+
+			"path": "pages/home/home",
+
 			"style": {
-				"navigationBarTitleText": "uni-app"
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "QIJU 齐居",
+
+				"disableScroll": true
+
 			}
+
 		},
+
 		{
-			"path": "pages/generate/generate",
+
+			"path": "pages/workers/workers",
+
 			"style": {
-				"navigationBarTitleText": "图片生产"
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "工人",
+
+				"disableScroll": true
+
 			}
+
+		},
+
+		{
+
+			"path": "pages/designers/designers",
+
+			"style": {
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "设计师",
+
+				"disableScroll": true
+
+			}
+
+		},
+
+		{
+
+			"path": "pages/materials/materials",
+
+			"style": {
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "材料",
+
+				"disableScroll": true
+
+			}
+
+		},
+
+		{
+
+			"path": "pages/profile/profile",
+
+			"style": {
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "我的",
+
+				"disableScroll": true
+
+			}
+
+		},
+
+		{
+
+			"path": "pages/case-detail/case-detail",
+
+			"style": {
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "案例详情"
+
+			}
+
+		},
+
+		{
+
+			"path": "pages/designer-profile/designer-profile",
+
+			"style": {
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "设计师名片"
+
+			}
+
+		},
+
+		{
+
+			"path": "pages/work-detail/work-detail",
+
+			"style": {
+
+				"navigationStyle": "custom",
+
+				"navigationBarTitleText": "作品详情"
+
+			}
+
+		},
+
+		{
+
+			"path": "pages/generate/generate",
+
+			"style": {
+
+				"navigationBarTitleText": "图片生产"
+
+			}
+
 		}
+
 	],
+
 	"globalStyle": {
+
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+
+		"navigationBarTitleText": "QIJU 齐居",
+
+		"navigationBarBackgroundColor": "#FDF9F2",
+
+		"backgroundColor": "#FDF9F2"
+
 	},
+
 	"uniIdRouter": {}
+
 }
+

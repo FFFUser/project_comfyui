@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>栖居 QĪJŪ - 您的家居装修助手</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#4a5c94",
+                    "primary-container": "#0052d9",
+                    "on-primary-container": "#cbd6ff",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#822600",
+                    "secondary-fixed-dim": "#b4c5ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#adbffd",
+                    "surface-container-highest": "#e6e2db",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f4f0e9",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-surface": "#31302c",
+                    "tertiary-fixed-dim": "#ffb59c",
+                    "primary-fixed": "#dbe1ff",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c3c6d7",
+                    "tertiary-container": "#aa3500",
+                    "secondary-fixed": "#dbe1ff",
+                    "on-tertiary-container": "#ffccbc",
+                    "surface-container-low": "#f7f3ec",
+                    "outline": "#737686",
+                    "on-background": "#1c1c18",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#ece8e1",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#00174b",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-secondary-fixed-variant": "#31447a",
+                    "surface-variant": "#e6e2db",
+                    "on-tertiary-fixed": "#390c00",
+                    "primary": "#003da6",
+                    "background": "#fdf9f2",
+                    "surface-dim": "#dddad3",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-tint": "#0353da",
+                    "tertiary-fixed": "#ffdbd0",
+                    "surface-container": "#f1ede6",
+                    "surface": "#fdf9f2",
+                    "on-primary-fixed": "#00174b",
+                    "on-surface": "#1c1c18",
+                    "on-surface-variant": "#434654",
+                    "on-tertiary-fixed-variant": "#832700",
+                    "on-secondary-container": "#3a4c83",
+                    "surface-bright": "#fdf9f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .primary-gradient { background: linear-gradient(to bottom, #003da6, #0052d9); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl flex items-center h-14"><div class="flex justify-between items-center w-full h-14 pl-6 pr-2"><div class="flex items-center gap-2"><h1 class="font-display text-lg font-black tracking-tight text-primary dark:text-primary-fixed-dim">栖居 QĪJŪ</h1></div><div class="flex items-center bg-white/80 border border-black/10 rounded-full px-3 py-1.5 gap-2.5 h-8"><button class="flex items-center justify-center"><span class="material-symbols-outlined text-[20px] text-black/90">more_horiz</span></button><div class="w-[1px] h-3.5 bg-black/10"></div><button class="flex items-center justify-center"><span class="material-symbols-outlined text-[18px] text-black/90">radio_button_checked</span></button></div></div></header>
+<main class="pt-28 max-w-2xl mx-auto px-1 pb-4">
+<!-- Search Bar -->
+<nav class="fixed top-14 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl px-4 py-2 border-b border-outline-variant/30 flex items-center gap-2"><div class="flex flex-1 p-1 bg-surface-container/50 rounded-xl gap-1"><button class="flex items-center justify-center w-10 h-8 text-on-surface-variant hover:bg-surface-container-high/50 transition-colors active:scale-95 duration-200 rounded-lg flex-shrink-0"><span class="material-symbols-outlined text-[20px]">apps</span></button><button class="flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 bg-primary text-on-primary shadow-sm">直连案例</button><button class="flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 text-on-surface-variant hover:bg-surface-container-high/50">木作案例</button><button class="flex-1 py-2 text-xs font-bold rounded-lg transition-all duration-200 text-on-surface-variant hover:bg-surface-container-high/50">设计案例</button><button class="flex items-center justify-center w-8 h-8 text-on-surface-variant hover:bg-surface-container-high/50 transition-colors active:scale-95 duration-200 rounded-lg flex-shrink-0 ml-1"><span class="material-symbols-outlined text-[18px]">search</span></button></div></nav>
+<!-- Section 1: Direct Cases -->
+<section class="mb-4"><div class="flex overflow-x-auto hide-scrollbar gap-2 px-4 py-3 bg-background sticky top-[102px] z-40 mb-1"><button class="flex-shrink-0 px-4 py-1.5 text-xs font-bold rounded-full bg-secondary/10 text-secondary border border-secondary/20 transition-all">全部</button><button class="flex-shrink-0 px-4 py-1.5 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all">水电</button><button class="flex-shrink-0 px-4 py-1.5 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all">泥木</button><button class="flex-shrink-0 px-4 py-1.5 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all">油漆</button><button class="flex-shrink-0 px-4 py-1.5 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all">安装</button></div><div class="grid grid-cols-2 pb-4 gap-1 px-0.5"><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE5_h9xcrgFUBOXeU1NP9wFnjvpR43NGI_lTPDfQgsCLc9jQ53xM-XVtkOXKXKD9L9Ny0NiFZvjZYfvChnQZZqFEKhsU5WpU0pflUVBkxeJ0Wh1Xxbgi7UT60VJ1pS4rD96TG0P9mV4KE5g30hpWq3UWFHHdqlDna6yQ0MCIO15eAurVEd1_S8aatDqXnSy6xbSaA4DNCt3isdWvk9roO1wTthZES1isagpO6Hu0KZgzsJfn1dJBKzZVv-wpU4a-lGm5Eigwi-v18"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">静安现代简装项目</h3><p class="text-[10px] text-on-surface-variant font-medium">现代简约 | 143平米 | 上海市</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-surface-container-high overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdQ_s1EXG20pS17dEP9L2QfSLJoKR5-lGE3T-5ygT6lW6HqIF3uzdoBeqUuYWzwD_Ex4Kpoyhb3y26ZfPZ3FZl0LPgwWphwhPRlAnqTNrFFuGH5NbtvVpO6rwC-DqG8rCIFQaYh43LEnqlM-HiqobLBc_EZ-Rb6kOxuqGLIA5HQ9WjX9PrvGZuU444J_SzRrnwwAbP0RFiuKIeV3g_xEZYJd5U_kxUIwYkSDiNFbAhDaHDjOEVapjAtFn4rVXFprp550w0txvV52E"></div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">张师傅团队</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">1.2w</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥4.2w</div></div></div><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOg_gN8Ato_xPHK9q_uMagMk29RN8Gk__m_HKBvYhAGEBYBYsUidzr-yFNIEmHajUuR-KJmo2VeNlPpU_R716ckXYPenh4FOYybeT_lc-gyoJlq2NUcQhrfo8RebenKT9CU4IChdcIScA7JwtsIdq5_PTxgwmDmLyluumIRqT-ALaLSCVTlq6zjU1_JVq5sNpmOQR14A_kKEybw8OgMBs3KiWT83aAHq2-4JFsMbweGbqi-Z3omQSbcaNg7dFKoFkLKgwn6U3rATA"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">天山路老房改造</h3><p class="text-[10px] text-on-surface-variant font-medium">老房改造 | 62平米 | 上海市</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-primary-container flex items-center justify-center text-[6px] text-white font-bold">LS</div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">李师傅</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">8.9k</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥2.8w</div></div></div><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmNAkKcKwKiU4EPhX4aB09Cl_o75M2VQ0EE05N1x8_k5yyvGAkTzYfYHurvh9vlAiwKfNHyOB0T9wJROXGxWYjcQT8wv9mso5_itGmQxFskQCoqmYfdJ8NQ2Ket7jUi4H1ApqB4RZlE85b1GTUGKtcQuHkJqUBy5UiEuDWiQb9SKwmUSP_5hUKNYPhm4P_8RX8UJXixPMrlPVOmAnzpV-Eieht_wsYojMcd_CC0RNL62rrU_VyftUPgfu2Oqqdy3IKUu400m96VkM"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">徐汇区旧屋翻新</h3><p class="text-[10px] text-on-surface-variant font-medium">意式轻奢 | 210平米 | 杭州市</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-surface-container-high overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdQ_s1EXG20pS17dEP9L2QfSLJoKR5-lGE3T-5ygT6lW6HqIF3uzdoBeqUuYWzwD_Ex4Kpoyhb3y26ZfPZ3FZl0LPgwWphwhPRlAnqTNrFFuGH5NbtvVpO6rwC-DqG8rCIFQaYh43LEnqlM-HiqobLBc_EZ-Rb6kOxuqGLIA5HQ9WjX9PrvGZuU444J_SzRrnwwAbP0RFiuKIeV3g_xEZYJd5U_kxUIwYkSDiNFbAhDaHDjOEVapjAtFn4rVXFprp550w0txvV52E"></div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">陈设计室</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">3.4k</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥3.5w</div></div></div><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWbKWmEAA7haOWpMQWYaB_l7UvL-_iQ0JuqaRpgPrs50VqpM-eeRyfUO1TjUUG9eLLZWHb7i2gORi1JhxaJUlQwOMpyTxEFA4onjBn0mOPIDu7SAOhdtscSCEMoBR7o6zzTFY-Douuco0LxAaizW6Q94itNKfvUqZzonU_EvwIIZqih5NIEocwJoq9m8JTqUPCudtYuDrLW_sQLkPTeY_TAYCSUO_Bz-6CZ7cAH92UdmNyIqmg9GpjG4HMZPg7gjSC3L1EVyz6w24"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">滨江壹号院软装</h3><p class="text-[10px] text-on-surface-variant font-medium">法式浪漫 | 158平米 | 南京市</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-secondary-container flex items-center justify-center text-[6px] text-white font-bold">WJ</div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">王静</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">5.2k</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥5.8w</div></div></div><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_C8Jd4qM8rB5qLjvRUFlB2s7v25kmJgQVxcp9yPnUx9bG0DYt5l9yRK_FJprmhcmukMxnbwh9IzQJqYX0S37pdn-e3wrzJTVa_wVCcvqZvJkLBCpa6Y4pUyyjE3EADeeTSX_eNa4H3YWtw7mp8v4BlejRzGblIItVQXJL9w56KnpdOnJ4BzSO1CXYA5wxmrk80qMtiX_JwM9EvnQ_tnvpEWz0w9Su8fszvw_p4xwR9VtO2SWOMVmQsSzIoT55RJ6TlX-0Cl7VDec"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">虹桥路二手房翻新</h3><p class="text-[10px] text-on-surface-variant font-medium">现代简约 | 89平米 | 北京市</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-tertiary-container flex items-center justify-center text-[6px] text-white font-bold">ZH</div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">周工</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">2.1k</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥1.9w</div></div></div><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdZTYxGlXiA1vPoJ8MxjhYgwZ-bHioT2zV1DFl8SAFNv4fJXkLfBnsocyRCEL8MXp6bhAT-Rb4AGB1n8FDUKtTi8IdmJ1FMkA1qPkygTfzVzHwJwJBj3JGtedFEfc8PmIkawPlZldEGS67v33iFu7h2bDl2sPPSJPN1mp_drVy5gULZJn9CQrjeb29yLUawjcWE5GROsxFnXmpRwOYpe5KnW9QyoTtLDGa_uwTFoX3X-w5RNSwDeJzLL_KgkeKNycBog26rEJbtwg"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">静安府大平层设计</h3><p class="text-[10px] text-on-surface-variant font-medium">现代简约 | 512平米 | 上海市</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-surface-container-high overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdQ_s1EXG20pS17dEP9L2QfSLJoKR5-lGE3T-5ygT6lW6HqIF3uzdoBeqUuYWzwD_Ex4Kpoyhb3y26ZfPZ3FZl0LPgwWphwhPRlAnqTNrFFuGH5NbtvVpO6rwC-DqG8rCIFQaYh43LEnqlM-HiqobLBc_EZ-Rb6kOxuqGLIA5HQ9WjX9PrvGZuU444J_SzRrnwwAbP0RFiuKIeV3g_xEZYJd5U_kxUIwYkSDiNFbAhDaHDjOEVapjAtFn4rVXFprp550w0txvV52E"></div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">大师团队</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">1.5w</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥12.5w</div></div></div><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOg_gN8Ato_xPHK9q_uMagMk29RN8Gk__m_HKBvYhAGEBYBYsUidzr-yFNIEmHajUuR-KJmo2VeNlPpU_R716ckXYPenh4FOYybeT_lc-gyoJlq2NUcQhrfo8RebenKT9CU4IChdcIScA7JwtsIdq5_PTxgwmDmLyluumIRqT-ALaLSCVTlq6zjU1_JVq5sNpmOQR14A_kKEybw8OgMBs3KiWT83aAHq2-4JFsMbweGbqi-Z3omQSbcaNg7dFKoFkLKgwn6U3rATA"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">老弄堂精致改造</h3><p class="text-[10px] text-on-surface-variant font-medium">全18集 | 复古 | 120万播放</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-primary-container flex items-center justify-center text-[6px] text-white font-bold">LS</div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">李师傅</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">4.7k</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥4.8w</div></div></div><div class="bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col shadow-sm"><div class="relative overflow-hidden aspect-square"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE5_h9xcrgFUBOXeU1NP9wFnjvpR43NGI_lTPDfQgsCLc9jQ53xM-XVtkOXKXKD9L9Ny0NiFZvjZYfvChnQZZqFEKhsU5WpU0pflUVBkxeJ0Wh1Xxbgi7UT60VJ1pS4rD96TG0P9mV4KE5g30hpWq3UWFHHdqlDna6yQ0MCIO15eAurVEd1_S8aatDqXnSy6xbSaA4DNCt3isdWvk9roO1wTthZES1isagpO6Hu0KZgzsJfn1dJBKzZVv-wpU4a-lGm5Eigwi-v18"><div class="absolute top-2 left-2 px-1.5 py-0.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-sm">爴家</div></div><div class="p-2 flex flex-col gap-1"><h3 class="font-bold text-on-surface text-sm line-clamp-1">浦东联排别墅装修</h3><p class="text-[10px] text-on-surface-variant font-medium">全45集 | 简欧 | 340万播放</p><div class="flex items-center justify-between mt-1"><div class="flex items-center gap-1"><div class="w-4 h-4 rounded-full bg-surface-container-high overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdQ_s1EXG20pS17dEP9L2QfSLJoKR5-lGE3T-5ygT6lW6HqIF3uzdoBeqUuYWzwD_Ex4Kpoyhb3y26ZfPZ3FZl0LPgwWphwhPRlAnqTNrFFuGH5NbtvVpO6rwC-DqG8rCIFQaYh43LEnqlM-HiqobLBc_EZ-Rb6kOxuqGLIA5HQ9WjX9PrvGZuU444J_SzRrnwwAbP0RFiuKIeV3g_xEZYJd5U_kxUIwYkSDiNFbAhDaHDjOEVapjAtFn4rVXFprp550w0txvV52E"></div><span class="text-[10px] text-on-surface-variant truncate max-w-[50px]">张师傅团队</span></div><div class="flex items-center gap-0.5 text-on-surface-variant"><span class="material-symbols-outlined text-[12px]">favorite</span><span class="text-[9px]">9.1k</span></div></div><div class="mt-1 text-primary font-bold text-sm">¥8.2w</div></div></div></div></section>
+<!-- Section 2: Woodwork Cases -->
+<section class="hidden">
+<h2 class="font-headline text-2xl font-bold tracking-tight text-on-surface mb-1 px-2">木作案例</h2>
+<p class="text-sm text-on-surface-variant mb-4 px-2">全屋定制 • 源头厂家 • 严选板材</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm aspect-[4/5]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A stunning interior view of a custom-built floor-to-ceiling wooden bookshelf in a warm, light-filled study. The wood is a light oak with a natural matte finish, reflecting the atmospheric clarity of the brand. Soft shadows define the recessed cabinetry handles. The scene is calm, premium, and showcases the bespoke quality of professional woodwork for a modern home." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmNAkKcKwKiU4EPhX4aB09Cl_o75M2VQ0EE05N1x8_k5yyvGAkTzYfYHurvh9vlAiwKfNHyOB0T9wJROXGxWYjcQT8wv9mso5_itGmQxFskQCoqmYfdJ8NQ2Ket7jUi4H1ApqB4RZlE85b1GTUGKtcQuHkJqUBy5UiEuDWiQb9SKwmUSP_5hUKNYPhm4P_8RX8UJXixPMrlPVOmAnzpV-Eieht_wsYojMcd_CC0RNL62rrU_VyftUPgfu2Oqqdy3IKUu400m96VkM">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-3 w-full">
+<p class="text-white font-bold text-sm truncate">北美白橡木书墙</p>
+<p class="text-white/80 text-[10px]">工厂价: ¥899/m²</p>
+</div>
+</div>
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm aspect-[4/5]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern minimalist kitchen cabinets in a soft taupe color with integrated brass hardware. The cabinetry is perfectly aligned, demonstrating precision engineering. The lighting is diffused and professional, casting a soft glow across the smooth surfaces. The aesthetic is high-end yet approachable, focusing on the quality of materials and the expertise of the cabinetry makers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWbKWmEAA7haOWpMQWYaB_l7UvL-_iQ0JuqaRpgPrs50VqpM-eeRyfUO1TjUUG9eLLZWHb7i2gORi1JhxaJUlQwOMpyTxEFA4onjBn0mOPIDu7SAOhdtscSCEMoBR7o6zzTFY-Douuco0LxAaizW6Q94itNKfvUqZzonU_EvwIIZqih5NIEocwJoq9m8JTqUPCudtYuDrLW_sQLkPTeY_TAYCSUO_Bz-6CZ7cAH92UdmNyIqmg9GpjG4HMZPg7gjSC3L1EVyz6w24">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-3 w-full">
+<p class="text-white font-bold text-sm truncate">极简无拉手橱柜</p>
+<p class="text-white/80 text-[10px]">工厂价: ¥1200/延米</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Design Cases -->
+<section class="hidden">
+<h2 class="font-headline text-2xl font-bold tracking-tight text-on-surface mb-1 px-2">设计案例</h2>
+<p class="text-sm text-on-surface-variant mb-4 px-2">大师手笔 • 艺术空间 • 质感生活</p>
+<div class="space-y-6">
+<!-- Large Feature Card -->
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A breathtaking open-plan residential interior featuring high-end architectural design. Large floor-to-ceiling windows reveal a soft garden view, while the interior uses a palette of warm beiges, textures like linen and stone, and bespoke furniture. The lighting is editorial and serene, creating a sense of professional guidance and calm. This image represents the pinnacle of professional interior design capability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdZTYxGlXiA1vPoJ8MxjhYgwZ-bHioT2zV1DFl8SAFNv4fJXkLfBnsocyRCEL8MXp6bhAT-Rb4AGB1n8FDUKtTi8IdmJ1FMkA1qPkygTfzVzHwJwJBj3JGtedFEfc8PmIkawPlZldEGS67v33iFu7h2bDl2sPPSJPN1mp_drVy5gULZJn9CQrjeb29yLUawjcWE5GROsxFnXmpRwOYpe5KnW9QyoTtLDGa_uwTFoX3X-w5RNSwDeJzLL_KgkeKNycBog26rEJbtwg">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<span class="px-3 py-1 bg-primary/5 text-primary text-xs font-bold rounded-full">现代法式</span>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdQ_s1EXG20pS17dEP9L2QfSLJoKR5-lGE3T-5ygT6lW6HqIF3uzdoBeqUuYWzwD_Ex4Kpoyhb3y26ZfPZ3FZl0LPgwWphwhPRlAnqTNrFFuGH5NbtvVpO6rwC-DqG8rCIFQaYh43LEnqlM-HiqobLBc_EZ-Rb6kOxuqGLIA5HQ9WjX9PrvGZuU444J_SzRrnwwAbP0RFiuKIeV3g_xEZYJd5U_kxUIwYkSDiNFbAhDaHDjOEVapjAtFn4rVXFprp550w0txvV52E">
+<div class="w-8 h-8 rounded-full bg-primary-container text-[10px] text-white flex items-center justify-center border-2 border-surface-container-lowest font-bold">SY</div>
+</div>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-2">流动的光影：外滩 180m² 平层官邸</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">通过对空间的重新解构，设计师将光作为主要的建筑材料，让生活在柔和的包裹中缓慢发生...</p>
+<div class="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">visibility</span> 2.4k</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">favorite</span> 512</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">chat_bubble</span> 48</span>
+</div>
+</div>
+</div>
+<!-- Secondary Design Card -->
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm flex flex-row-reverse h-40">
+<div class="w-2/5 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist master bedroom featuring a soft linen headboard, limestone textures, and warm, indirect lighting. The room feels airy and architecturally sound. The style is editorial and serene, emphasizing visual comfort and high-end professional design. The color palette is rooted in warm beiges and off-whites, creating an atmospheric clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_C8Jd4qM8rB5qLjvRUFlB2s7v25kmJgQVxcp9yPnUx9bG0DYt5l9yRK_FJprmhcmukMxnbwh9IzQJqYX0S37pdn-e3wrzJTVa_wVCcvqZvJkLBCpa6Y4pUyyjE3EADeeTSX_eNa4H3YWtw7mp8v4BlejRzGblIItVQXJL9w56KnpdOnJ4BzSO1CXYA5wxmrk80qMtiX_JwM9EvnQ_tnvpEWz0w9Su8fszvw_p4xwR9VtO2SWOMVmQsSzIoT55RJ6TlX-0Cl7VDec">
+</div>
+<div class="w-3/5 p-4 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-on-surface text-base line-clamp-2">侘寂之境：山中别院改造计划</h3>
+<p class="text-[11px] text-on-surface-variant mt-1">独立设计师 · 梁周</p>
+</div>
+<button class="text-primary text-xs font-bold text-left">探索设计细节 →</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 border-t border-outline-variant/30 flex justify-around items-center px-4 h-16 shadow-[0_-1px_3px_0_rgba(0,0,0,0.05)] bg-surface">
+<a class="flex flex-col items-center justify-center gap-1 text-primary active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label text-[11px] font-semibold tracking-wide">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-outline hover:text-primary active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span class="font-label text-[11px] font-semibold tracking-wide">工人</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-outline hover:text-primary active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label text-[11px] font-semibold tracking-wide">设计师</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-outline hover:text-primary active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">format_paint</span>
+<span class="font-label text-[11px] font-semibold tracking-wide">材料</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-outline hover:text-primary active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label text-[11px] font-semibold tracking-wide">我的</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for search bar scrolling
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('shadow-lg');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('shadow-lg');
+        });
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+
+
+
+
+</body></html>

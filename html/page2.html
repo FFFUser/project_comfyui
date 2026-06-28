@@ -1,0 +1,302 @@
+<!DOCTYPE html><html class="light" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>栖居 QĪJŪ - 材料库</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-surface": "#31302c",
+                    "on-primary-fixed": "#00174b",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fdf9f2",
+                    "tertiary-fixed-dim": "#ffb59c",
+                    "tertiary-fixed": "#ffdbd0",
+                    "outline-variant": "#c3c6d7",
+                    "on-secondary-container": "#3a4c83",
+                    "background": "#fdf9f2",
+                    "tertiary": "#822600",
+                    "on-tertiary-fixed-variant": "#832700",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e6e2db",
+                    "on-secondary-fixed-variant": "#31447a",
+                    "surface-container": "#f1ede6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed": "#00174b",
+                    "surface-variant": "#e6e2db",
+                    "surface": "#fdf9f2",
+                    "on-error-container": "#93000a",
+                    "secondary": "#4a5c94",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#aa3500",
+                    "secondary-fixed": "#dbe1ff",
+                    "primary": "#003da6",
+                    "on-background": "#1c1c18",
+                    "on-primary-container": "#cbd6ff",
+                    "surface-dim": "#dddad3",
+                    "secondary-container": "#adbffd",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#390c00",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-high": "#ece8e1",
+                    "on-surface": "#1c1c18",
+                    "surface-tint": "#0353da",
+                    "secondary-fixed-dim": "#b4c5ff",
+                    "error-container": "#ffdad6",
+                    "outline": "#737686",
+                    "on-tertiary-container": "#ffccbc",
+                    "surface-container-low": "#f7f3ec",
+                    "inverse-on-surface": "#f4f0e9",
+                    "primary-container": "#0052d9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background-color: rgba(253, 249, 242, 0.85);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim flex items-center justify-between px-4 h-16 w-full shadow-none">
+<div class="flex items-center gap-2">
+
+<h1 class="font-headline text-headline-sm font-bold text-on-surface dark:text-primary-fixed-dim">栖居 QĪJŪ</h1>
+</div>
+<!-- WeChat Capsule Placeholder -->
+<div class="flex items-center bg-on-surface/5 rounded-full px-3 py-1 gap-4 border border-outline/10">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+<div class="w-px h-4 bg-outline/20"></div>
+<span class="material-symbols-outlined text-sm">radio_button_checked</span>
+</div>
+</header>
+<main class="pt-16 pb-24">
+<!-- Search & Filter Area -->
+<section class="px-4 mt-4">
+<div class="bg-surface-container-low rounded-xl flex items-center px-4 py-3 gap-3 mb-6">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline" placeholder="搜索环保木材、极简石材..." type="text">
+</div>
+</section>
+<!-- Category Horizontal Scroll -->
+<nav class="sticky top-16 z-40 bg-surface/95 backdrop-blur-md mb-2">
+<div class="flex overflow-x-auto no-scrollbar px-4 py-3 gap-6 items-center">
+<button class="whitespace-nowrap text-sm font-bold text-primary border-b-2 border-primary pb-1">全部</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">绿碳石材</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">岩石</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">木材</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">涂料</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">瓷砖</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">金属</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">玻璃</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">水泥</button>
+<button class="whitespace-nowrap text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">地板</button>
+</div>
+</nav>
+<!-- Feature Spotlight (Bento Grid Style) -->
+<section class="px-4 mb-8">
+<div class="grid grid-cols-2 gap-3 h-64">
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col justify-between relative overflow-hidden group shadow-sm border border-outline-variant/10">
+<div class="absolute inset-0 bg-cover bg-center opacity-20 group-hover:scale-105 transition-transform duration-700" data-alt="A macro photograph of premium Italian Carrara marble slab with intricate grey veining against a pure white background. Soft architectural lighting highlights the polished crystalline surface texture. The aesthetic is high-end, clean, and minimalist, fitting a luxury interior design app's palette of whites and soft greys." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpJATtVHBE2ZvzmbPZVnlQDMgobkzuQ02rNzoSr631RYeOZ4NiWjsqRhT8DZFp_8uhFJKiiQeU7xY8pZZYDJPYNqEmJASw6Z9ZQP07lkPDzcEf6jsodXbeoYxBet7XA3mK7w5D-INmJ5fj5MDJFpZNl6d6DLnexm1KSoE0jltvkos8zI90ahZJeTEbJ18-9fThHMYaQWZnkUfz6-PfnbpYDu0EIVoUwjiP3KO1rkgNBEe8CsNXsKSpS3PlIjpz7z2dj-HoxhIs0zg')"></div>
+<div class="relative z-10">
+<span class="text-[10px] font-bold tracking-widest text-tertiary uppercase mb-1 block">本月推荐</span>
+<h3 class="text-lg font-bold text-on-surface leading-tight">极地雪岩<br>Premium Marble</h3>
+</div>
+<div class="relative z-10 flex items-center gap-2">
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">新品上市</span>
+<span class="material-symbols-outlined text-primary text-lg">arrow_right_alt</span>
+</div>
+</div>
+<div class="grid grid-rows-2 gap-3">
+<div class="bg-secondary-container rounded-xl p-4 flex items-center justify-between overflow-hidden relative group">
+<div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-500" data-alt="Close-up of eco-friendly oak wood flooring planks showing natural grain patterns and knots. The lighting is warm and organic, emphasizing the tactile texture of the wood. The color palette features rich ambers and soft beiges, aligning with a grounded, atmospheric interior design aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0aPUdUgmxpcwesflHeJM1oTsHpmw7so1-gHiINr5MrAjgpANtAGWC1GfFz6gruyt0PyU6NS4SsVqFs8JJje8iGObnVmfSqSVsH-1dLBsiri-ZaM7_TQ74ehu3fFhnvSezQ_EHMgwdPekwH68z03CuVyr4OCvkaTpg1ZkqP3m6kzIoZQfxXizV7vzxwZH_aGUnxKqZ_SujHmZXfT5xDfxG-fawoMtoWqWbCmELeVhoUDGuUfUlEx1hfd65kOP8oo3e0Jp51PSz0iI')"></div>
+<span class="relative z-10 font-bold text-on-secondary-container">可持续木材<br><span class="text-xs font-normal opacity-70">Eco-Certified</span></span>
+<span class="relative z-10 material-symbols-outlined text-on-secondary-container">eco</span>
+</div>
+<div class="bg-surface-container-high rounded-xl p-4 flex items-center justify-between">
+<span class="font-bold text-on-surface">质感涂料<br><span class="text-xs font-normal opacity-70">Designer Paint</span></span>
+<span class="material-symbols-outlined text-on-surface-variant">format_paint</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Material List -->
+<section class="px-4 space-y-6">
+<div class="flex items-end justify-between mb-2">
+<h2 class="font-display text-xl font-extrabold text-on-surface tracking-tight">甄选建材库</h2>
+<span class="text-xs font-medium text-outline">共 1,280 件商品</span>
+</div>
+<!-- Material Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-all active:scale-[0.98]">
+<div class="flex h-40">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="High-resolution close-up of a sophisticated dark charcoal grey architectural stone slab with fine white linear veining. The lighting is moody and dramatic, showcasing the matte texture and premium quality. Perfect for a luxury modern kitchen or bathroom context, using deep tonal colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6lKq1nPxFqlE4IKSWlOzKlDoExSwLnSyxMVI4oCR1wyaujNKREz2VuNQtESxK_k3_82EODERUMkY4IgbMIah73HDoumIRyOXTh4sr1sZMVB3M-FQueq-jhWg0u2Ffz3--yT4Ojmcr7X8nYO9aaM5q0uuC8uEDc5qQPJCmArpHUZrfIrSR_MwopktTd1TyiI01vrPhwum1KQPmejZJzHfF2H8lxOSCp_mvGs0jtIzMKmqoaX8KOUkjB1bnYES0TQ3uilJJa6mHnpA">
+<div class="absolute top-2 left-2 bg-primary text-on-primary text-[10px] px-2 py-0.5 rounded shadow-sm">热销</div>
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface text-base">深海玄武·哑光大板</h4>
+<span class="material-symbols-outlined text-outline text-lg">bookmark</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">品牌: 简一大理石瓷砖</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="bg-surface-container-low text-on-surface-variant text-[10px] px-2 py-1 rounded-md border border-outline-variant/20">耐磨耐划</span>
+<span class="bg-surface-container-low text-on-surface-variant text-[10px] px-2 py-1 rounded-md border border-outline-variant/20">防渗透</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="text-primary font-bold text-lg">¥899<span class="text-[10px] font-normal text-outline ml-1">/㎡ 起</span></span>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-xs font-bold shadow-sm active:scale-95 transition-transform">立即咨询</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Material Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-all active:scale-[0.98]">
+<div class="flex h-40">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="Close-up detail of high-quality engineered light oak flooring planks. The image emphasizes the natural wood texture, subtle grain variations, and interlocking edge. Soft afternoon sunlight filters across the surface, creating an inviting, warm home atmosphere. The palette is dominated by honey and cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWhTuHSHTeh_nJx5-ey-Ay5yGKluhdsspDZw_tLt6LNEoCetoW8f4Lt6hMXLK0KgCRIEkpsOb_wLBGy5DznJ9NMhkA4dDuzKcTM-2dRy-HB630dfc51-DqNdSrDsAmp4HqdCI8Ldg0qVYhwtFSGAmJxJ1W7iAizxcNReAc__q8TNEOKEq8w1A-dMASkWNF8HwKiUk6Zxi3NGGQz8hVnFcfLcDXX_mBBZjjSHfnR5Eo6tiz-5A0wXIuStmHDuGsHygxYqBhp8uxgrY">
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface text-base">北欧橡木·三层实木</h4>
+<span class="material-symbols-outlined text-outline text-lg">bookmark</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">品牌: 圣象地板 PowerDekor</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="bg-surface-container-low text-on-surface-variant text-[10px] px-2 py-1 rounded-md border border-outline-variant/20">E0级环保</span>
+<span class="bg-surface-container-low text-on-surface-variant text-[10px] px-2 py-1 rounded-md border border-outline-variant/20">地暖适用</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="text-primary font-bold text-lg">¥458<span class="text-[10px] font-normal text-outline ml-1">/㎡ 起</span></span>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-xs font-bold shadow-sm active:scale-95 transition-transform">立即咨询</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Material Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-all active:scale-[0.98]">
+<div class="flex h-40">
+<div class="w-1/3 relative">
+<img class="w-full h-full object-cover" data-alt="Artistic shot of multiple luxury paint swatches in desert-inspired tones like terracotta, warm beige, and muted sage. The paint has a rich, velvety texture. Professional studio lighting highlights the matte finish and color depth. The aesthetic is curated and designer-focused, emphasizing atmospheric clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1T6qmcWGkEiSjp-7EP1W8Pj_0ebDVK2MUQybZsY_6iJSZHYPSEp3NKZw_qhHNOUUWr9X9MmnAm3QJTiGlPbwnjt0EJsF2SCFpB91-amEHEUygBQtn99la0SXKF5KfAMuz4Z96j9O-Qgr8Ug9PATSvOv6cfW_OMU5pnVYh3yS1CBlGv4F4CvRW1SVxfpoeJxuGpveW-Le6gaTB5aT3yTMvCbKRN6HPIv4_bohUunlzw1MbfaiCZLNy_e96zU3K2GdDZRrLkPYKfts">
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface text-base">大地系列·艺术涂料</h4>
+<span class="material-symbols-outlined text-outline text-lg">bookmark</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">品牌: Farrow &amp; Ball</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="bg-surface-container-low text-on-surface-variant text-[10px] px-2 py-1 rounded-md border border-outline-variant/20">纯植物提取</span>
+<span class="bg-surface-container-low text-on-surface-variant text-[10px] px-2 py-1 rounded-md border border-outline-variant/20">大师色彩</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="text-primary font-bold text-lg">¥1,260<span class="text-[10px] font-normal text-outline ml-1">/5L 桶</span></span>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-xs font-bold shadow-sm active:scale-95 transition-transform">立即咨询</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-low shadow-[0_-4px_24px_rgba(28,28,24,0.06)] flex justify-around items-center h-20 pb-safe px-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary/80 transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-label-sm font-medium mt-1">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary/80 transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span class="font-label text-label-sm font-medium mt-1">工人</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary/80 transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label text-label-sm font-medium mt-1">设计师</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">format_paint</span>
+<span class="font-label text-label-sm font-medium mt-1 text-primary">材料</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary/80 transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label text-label-sm font-medium mt-1">我的</span>
+</a>
+</nav>
+<script>
+        // Simple scroll behavior for header
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                header.classList.remove('shadow-sm');
+                return;
+            }
+            if (currentScroll > lastScroll) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+                header.classList.add('shadow-sm');
+            }
+            header.style.transition = 'transform 0.3s ease-in-out';
+            lastScroll = currentScroll;
+        });
+
+        // Toggle bookmark interaction
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            if (icon.textContent === 'bookmark') {
+                icon.addEventListener('click', function() {
+                    const isFilled = this.style.fontVariationSettings.includes("'FILL' 1");
+                    this.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                    this.style.color = isFilled ? '' : 'var(--tw-text-opacity: 1; color: rgb(0 61 166 / var(--tw-text-opacity)))';
+                    this.classList.toggle('text-primary', !isFilled);
+                    this.classList.toggle('text-outline', isFilled);
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

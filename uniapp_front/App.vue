@@ -13,5 +13,8 @@
 </script>
 
 <style>
-	/*每个页面公共css */
+	page {
+		background-color: #fdf9f2;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+	}
 </style>
