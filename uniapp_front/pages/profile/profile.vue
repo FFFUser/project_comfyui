@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<TopAppBar variant="profile" />
-		<scroll-view scroll-y class="main" :bounces="false" :style="{ height: scrollHeight + 'px' }">
+		<scroll-view scroll-y class="main" :bounces="false" :style="{ height: scrollHeight + 'px', width: '100%' }">
 			<view class="profile-header">
 				<view class="avatar-wrap">
 					<image class="avatar" :src="profileAvatar" mode="aspectFill" />
@@ -11,13 +11,9 @@
 				</view>
 				<view class="profile-info">
 					<text class="nickname">林 栖居</text>
-					<view class="level-badge">
-						<image class="crown-icon" :src="icons.profileCrown" mode="aspectFit" />
-						<text class="level-text">尊享会员</text>
-					</view>
 					<text class="bio">寻找生活中的建筑美学</text>
 				</view>
-				<image class="arrow" :src="icons.chevronRight" mode="aspectFit" />
+				<view class="list-arrow" />
 			</view>
 			<view class="quick-links">
 				<view v-for="link in quickLinks" :key="link.label" class="quick-item">
@@ -35,16 +31,17 @@
 						</view>
 						<text class="menu-label">{{ menu.label }}</text>
 					</view>
-					<image class="menu-arrow" :src="icons.chevronRight" mode="aspectFit" />
+					<view class="list-arrow" />
 				</view>
 			</view>
 			<view class="cta-banner">
+				<image class="cta-bg" :src="ctaBannerBg" mode="aspectFill" />
+				<view class="cta-overlay" />
 				<view class="cta-content">
 					<text class="cta-title">发现更多家居灵感</text>
 					<text class="cta-sub">定制您的专属生活空间</text>
 					<button class="cta-btn">立即探索</button>
 				</view>
-				<image class="cta-deco" :src="icons.ctaDeco" mode="aspectFit" />
 			</view>
 		</scroll-view>
 		<BottomNavBar current="profile" />
@@ -64,6 +61,7 @@
 				quickLinks: PROFILE_QUICK_LINKS,
 				menus: PROFILE_MENUS,
 				profileAvatar: ASSETS.profile.avatar,
+				ctaBannerBg: ASSETS.profile.ctaBanner,
 				icons: ICONS,
 				scrollHeight: 500
 			}
@@ -83,14 +81,16 @@
 	}
 
 	.main {
+		box-sizing: border-box;
+		width: 100%;
 		padding: 32rpx 48rpx 0;
 	}
 
 	.profile-header {
 		display: flex;
 		align-items: center;
-		gap: 48rpx;
-		padding: 32rpx 0;
+		gap: 32rpx;
+		padding: 32rpx 32rpx 32rpx 0;
 	}
 
 	.avatar-wrap {
@@ -99,8 +99,8 @@
 	}
 
 	.avatar {
-		width: 192rpx;
-		height: 192rpx;
+		width: 160rpx;
+		height: 160rpx;
 		border-radius: 50%;
 		border: 4rpx solid #fff;
 		box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);
@@ -109,10 +109,10 @@
 
 	.edit-btn {
 		position: absolute;
-		right: -8rpx;
-		bottom: -8rpx;
-		width: 56rpx;
-		height: 56rpx;
+		right: -6rpx;
+		bottom: -6rpx;
+		width: 48rpx;
+		height: 48rpx;
 		background: #003da6;
 		border-radius: 50%;
 		border: 4rpx solid #fdf9f2;
@@ -122,8 +122,8 @@
 	}
 
 	.edit-icon {
-		width: 29rpx;
-		height: 28rpx;
+		width: 24rpx;
+		height: 24rpx;
 	}
 
 	.profile-info {
@@ -139,41 +139,23 @@
 		line-height: 64rpx;
 	}
 
-	.level-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 12rpx;
-		margin-top: 8rpx;
-		padding: 4rpx 24rpx;
-		background: #ffdbd0;
-		border-radius: 999rpx;
-	}
-
-	.crown-icon {
-		width: 19rpx;
-		height: 25rpx;
-	}
-
-	.level-text {
-		font-size: 24rpx;
-		color: #832700;
-		letter-spacing: 1.2rpx;
-		text-transform: uppercase;
-	}
-
 	.bio {
 		display: block;
-		margin-top: 14rpx;
+		margin-top: 20rpx;
 		font-size: 28rpx;
 		color: #434654;
 		line-height: 40rpx;
 	}
 
-	.arrow {
-		width: 15rpx;
-		height: 24rpx;
+	.list-arrow {
+		width: 14rpx;
+		height: 14rpx;
 		flex-shrink: 0;
-		padding: 16rpx;
+		margin-left: 16rpx;
+		border-top: 3rpx solid #737686;
+		border-right: 3rpx solid #737686;
+		transform: rotate(45deg);
+		box-sizing: border-box;
 	}
 
 	.quick-links {
@@ -221,6 +203,8 @@
 	}
 
 	.menu-list {
+		box-sizing: border-box;
+		width: 100%;
 		background: #fff;
 		border-radius: 24rpx;
 		overflow: hidden;
@@ -228,16 +212,19 @@
 	}
 
 	.menu-item {
+		box-sizing: border-box;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 40rpx;
+		padding: 32rpx;
 	}
 
 	.menu-left {
+		flex: 1;
+		min-width: 0;
 		display: flex;
 		align-items: center;
-		gap: 32rpx;
+		gap: 24rpx;
 	}
 
 	.menu-icon-wrap {
@@ -251,39 +238,63 @@
 	.menu-icon {
 		width: 40rpx;
 		height: 40rpx;
+		display: block;
+		flex-shrink: 0;
 	}
 
 	.menu-label {
 		font-size: 32rpx;
 		color: #1c1c18;
-	}
-
-	.menu-arrow {
-		width: 15rpx;
-		height: 24rpx;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.cta-banner {
 		position: relative;
-		background: #ece8e1;
 		border-radius: 24rpx;
-		padding: 48rpx;
 		overflow: hidden;
 		margin-bottom: 32rpx;
+		min-height: 280rpx;
+	}
+
+	.cta-bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.cta-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			90deg,
+			rgba(28, 28, 24, 0.82) 0%,
+			rgba(28, 28, 24, 0.68) 40%,
+			rgba(28, 28, 24, 0.35) 70%,
+			rgba(28, 28, 24, 0.12) 100%
+		);
+	}
+
+	.cta-content {
+		position: relative;
+		z-index: 1;
+		padding: 48rpx;
 	}
 
 	.cta-title {
 		display: block;
 		font-size: 36rpx;
 		font-weight: 500;
-		color: #1c1c18;
+		color: #fff;
 		line-height: 56rpx;
 	}
 
 	.cta-sub {
 		display: block;
 		font-size: 28rpx;
-		color: #434654;
+		color: rgba(255, 255, 255, 0.78);
 		margin-top: 8rpx;
 		padding-bottom: 24rpx;
 		line-height: 40rpx;
@@ -301,15 +312,5 @@
 		display: inline-block;
 		width: auto;
 		box-shadow: 0 8rpx 12rpx -2rpx rgba(0, 0, 0, 0.1);
-	}
-
-	.cta-deco {
-		position: absolute;
-		right: -32rpx;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 160rpx;
-		height: 160rpx;
-		opacity: 0.2;
 	}
 </style>

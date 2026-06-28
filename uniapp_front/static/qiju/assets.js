@@ -63,7 +63,8 @@ export const ASSETS = {
 		avatars: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/avatar-${i + 1}.jpg`)
 	},
 	profile: {
-		avatar: '/static/qiju/profile/avatar.jpg'
+		avatar: '/static/qiju/profile/avatar.jpg',
+		ctaBanner: '/static/qiju/work-detail/hero.jpg'
 	},
 	designerProfile: {
 		hero: '/static/qiju/designer-profile/hero.jpg',
