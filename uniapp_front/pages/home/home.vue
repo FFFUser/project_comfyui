@@ -152,7 +152,9 @@
 					uni.navigateTo({ url: '/pages/work-detail/work-detail?id=' + item.id })
 					return
 				}
-				uni.navigateTo({ url: '/pages/case-detail/case-detail?id=' + item.id })
+				uni.navigateTo({
+					url: '/pages/case-detail/case-detail?id=' + item.id + '&title=' + encodeURIComponent(item.title)
+				})
 			},
 			toggleSearch() {
 				if (this.searchOpen) {

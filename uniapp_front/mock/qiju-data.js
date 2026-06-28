@@ -107,12 +107,42 @@ export const CASE_DETAIL = {
 	gallery: ASSETS.caseDetail.gallery,
 	constructionPhotos: ASSETS.caseDetail.construction,
 	team: [
-		{ role: '项目经理', name: '张经理' },
-		{ role: '水电工', name: '李师傅' },
-		{ role: '泥木工', name: '王师傅' },
-		{ role: '油漆工', name: '赵师傅' }
+		{ role: '项目经理', name: '张经理', avatar: ASSETS.workers.avatars[0] },
+		{ role: '水电工', name: '李师傅', avatar: ASSETS.workers.avatars[1] },
+		{ role: '泥木工', name: '王师傅', avatar: ASSETS.workers.avatars[2] },
+		{ role: '油漆工', name: '赵师傅', avatar: ASSETS.workers.avatars[3] }
 	],
-	dynamics: ['全部', '水电', '泥木', '油漆']
+	teamPhotos: ASSETS.workers.avatars,
+	dynamics: ['全部', '水电', '泥木', '油漆'],
+	feeds: [
+		{
+			category: '水电',
+			name: '李师傅',
+			badge: '水电',
+			time: '2小时前',
+			title: '· 强弱电布线完成',
+			avatar: ASSETS.workers.avatars[1],
+			image: ASSETS.caseDetail.construction[0]
+		},
+		{
+			category: '泥木',
+			name: '王师傅',
+			badge: '泥木',
+			time: '昨天 16:30',
+			title: '· 客厅地砖铺贴进度更新',
+			avatar: ASSETS.workers.avatars[2],
+			image: ASSETS.caseDetail.construction[1]
+		},
+		{
+			category: '油漆',
+			name: '赵师傅',
+			badge: '油漆',
+			time: '3天前',
+			title: '· 墙面第一遍腻子已完工',
+			avatar: ASSETS.workers.avatars[3],
+			image: ASSETS.caseDetail.construction[2]
+		}
+	]
 }
 
 export const DESIGNER_PROFILE = {

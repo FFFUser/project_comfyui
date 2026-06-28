@@ -1,11 +1,16 @@
 <template>
 	<view class="top-bar" :class="variant" :style="{ paddingTop: statusBarHeight + 'px' }">
-		<view class="bar-inner" :style="{ height: barInnerHeight + 'px' }">
+		<view
+			class="bar-inner"
+			:class="{ 'detail-inner': variant === 'detail' }"
+			:style="barInnerStyle"
+		>
 			<template v-if="variant === 'detail'">
-				<view class="back-btn" @click="onBack">
-					<text class="back-icon">‹</text>
+				<view class="back-btn" :style="backBtnStyle" @click="onBack">
+					<text class="back-icon" :style="backIconStyle">‹</text>
 				</view>
-				<text class="title">{{ title }}</text>
+				<text class="title detail-title">{{ title }}</text>
+				<view class="nav-spacer" :style="backBtnStyle" />
 			</template>
 			<template v-else>
 				<view class="brand">
@@ -30,7 +35,31 @@
 			return {
 				statusBarHeight: 20,
 				barInnerHeight: 56,
+				navPaddingLeft: 24,
+				navPaddingRight: 24,
+				menuButtonSize: 32,
 				icons: ICONS
+			}
+		},
+		computed: {
+			barInnerStyle() {
+				const style = { height: this.barInnerHeight + 'px' }
+				if (this.variant === 'detail') {
+					style.paddingLeft = this.navPaddingLeft + 'px'
+					style.paddingRight = this.navPaddingRight + 'px'
+				}
+				return style
+			},
+			backBtnStyle() {
+				return {
+					width: this.menuButtonSize + 'px',
+					height: this.menuButtonSize + 'px'
+				}
+			},
+			backIconStyle() {
+				return {
+					fontSize: Math.round(this.menuButtonSize * 0.72) + 'px'
+				}
 			}
 		},
 		created() {
@@ -41,11 +70,18 @@
 				const sys = uni.getSystemInfoSync()
 				this.statusBarHeight = sys.statusBarHeight || 20
 				const defaultHeight = Math.round(112 * sys.windowWidth / 750)
+				const defaultSize = Math.round(64 * sys.windowWidth / 750)
+				this.menuButtonSize = defaultSize
+				this.navPaddingLeft = Math.round(24 * sys.windowWidth / 750)
+				this.navPaddingRight = Math.round(48 * sys.windowWidth / 750)
 
 				// #ifdef MP-WEIXIN
 				const menuButton = uni.getMenuButtonBoundingClientRect()
 				if (menuButton && menuButton.height) {
 					this.barInnerHeight = (menuButton.top - this.statusBarHeight) * 2 + menuButton.height
+					this.menuButtonSize = menuButton.height
+					this.navPaddingLeft = 10
+					this.navPaddingRight = sys.windowWidth - menuButton.right
 					return
 				}
 				// #endif
@@ -113,16 +149,36 @@
 		letter-spacing: -0.7rpx;
 	}
 
+	.detail-inner {
+		position: relative;
+		justify-content: flex-start;
+		padding: 0;
+	}
+
+	.detail-title {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		flex: none;
+		max-width: 42%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.nav-spacer {
+		flex-shrink: 0;
+		margin-left: auto;
+	}
+
 	.back-btn {
-		width: 80rpx;
-		height: 64rpx;
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 
 	.back-icon {
-		font-size: 56rpx;
 		color: #1c1c18;
 		line-height: 1;
 		font-weight: 300;
