@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<view class="hero" :style="{ paddingTop: statusBarHeight + 'px' }">
+		<view class="hero" :style="heroStyle">
 			<image class="hero-bg-img" :src="profile.hero" mode="aspectFill" />
 			<view class="hero-bg" />
 			<view class="hero-gradient" />
@@ -28,29 +28,31 @@
 				<button class="btn-follow" @click="onBook">咨询预约</button>
 			</view>
 		</view>
-		<scroll-view scroll-y class="content" :style="{ height: scrollHeight + 'px' }">
+		<view class="content-panel" :style="contentPanelStyle">
 			<view class="works-tab">
 				<text class="works-tab-active">作品</text>
 			</view>
-			<view class="works-grid">
-				<view
-					v-for="(work, i) in profile.works"
-					:key="i"
-					class="work-card"
-					@click="goWorkDetail"
-				>
-					<image v-if="work.cover" class="work-cover" :src="work.cover" mode="aspectFill" />
-					<view v-else class="work-cover" :style="{ background: workColors[i % 4], height: workHeights[i % 4] }" />
-					<view class="work-info">
-						<text class="work-title">{{ work.title }}</text>
-						<view class="work-meta">
-							<text class="work-author">{{ profile.name }}</text>
-							<text class="work-likes">♥ {{ work.likes }}</text>
+			<scroll-view scroll-y class="works-scroll" :bounces="false" :style="{ height: scrollHeight + 'px' }">
+				<view class="works-grid">
+					<view
+						v-for="(work, i) in profile.works"
+						:key="i"
+						class="work-card"
+						@click="goWorkDetail"
+					>
+						<image v-if="work.cover" class="work-cover" :src="work.cover" mode="aspectFill" />
+						<view v-else class="work-cover" :style="{ background: workColors[i % 4], height: workHeights[i % 4] }" />
+						<view class="work-info">
+							<text class="work-title">{{ work.title }}</text>
+							<view class="work-meta">
+								<text class="work-author">{{ profile.name }}</text>
+								<text class="work-likes">♥ {{ work.likes }}</text>
+							</view>
 						</view>
 					</view>
 				</view>
-			</view>
-		</scroll-view>
+			</scroll-view>
+		</view>
 	</view>
 </template>
 
@@ -63,9 +65,26 @@
 				profile: { ...DESIGNER_PROFILE },
 				statusBarHeight: 20,
 				barInnerHeight: 56,
+				heroHeightPx: 460,
+				contentTopPx: 280,
+				panelHeightPx: 500,
 				scrollHeight: 500,
 				workColors: ['#c8d4e0', '#d0d8c8', '#e0d0c8', '#d4cfc7'],
 				workHeights: ['300rpx', '300rpx', '280rpx', '240rpx']
+			}
+		},
+		computed: {
+			heroStyle() {
+				return {
+					paddingTop: this.statusBarHeight + 'px',
+					height: this.heroHeightPx + 'px'
+				}
+			},
+			contentPanelStyle() {
+				return {
+					top: this.contentTopPx + 'px',
+					height: this.panelHeightPx + 'px'
+				}
 			}
 		},
 		onLoad(options) {
@@ -81,10 +100,22 @@
 			// #endif
 
 			this.applyDesignerFromList(options)
-
-			this.scrollHeight = sys.windowHeight - 460 + 48
+			this.updateLayout(sys)
 		},
 		methods: {
+			updateLayout(sys) {
+				const heroHeightRpx = 920
+				const overlapRpx = 180
+				const extraOverlapPx = -20
+				const worksTabHeightRpx = 72
+
+				this.heroHeightPx = Math.round(heroHeightRpx * sys.windowWidth / 750)
+				const overlapPx = Math.round(overlapRpx * sys.windowWidth / 750) + extraOverlapPx
+				this.contentTopPx = this.heroHeightPx - overlapPx
+				this.panelHeightPx = sys.windowHeight - this.contentTopPx
+				const worksTabHeightPx = Math.round(worksTabHeightRpx * sys.windowWidth / 750)
+				this.scrollHeight = this.panelHeightPx - worksTabHeightPx
+			},
 			applyDesignerFromList(options) {
 				const id = Number(options.id)
 				const designer = DESIGNERS.find(d => d.id === id)
@@ -114,8 +145,21 @@
 </script>
 
 <style scoped>
-	.page { min-height: 100vh; background: #f5f3ef; }
-	.hero { position: relative; height: 920rpx; overflow: hidden; }
+	.page {
+		height: 100vh;
+		overflow: hidden;
+		background: #f5f3ef;
+		position: relative;
+	}
+	.hero {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
 	.hero-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; }
 	.hero-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.25); }
 	.hero-gradient {
@@ -148,7 +192,7 @@
 		line-height: 1;
 		font-weight: 300;
 	}
-	.hero-content { position: relative; z-index: 2; padding: 24rpx 48rpx 48rpx; margin-top: 8rpx; }
+	.hero-content { position: relative; z-index: 2; padding: 24rpx 48rpx 24rpx; margin-top: 8rpx; }
 	.avatar-row { display: flex; gap: 32rpx; }
 	.avatar {
 		width: 192rpx; height: 192rpx; border-radius: 50%;
@@ -166,15 +210,25 @@
 		border-radius: 8rpx; font-size: 24rpx; color: #fff;
 	}
 	.btn-follow {
-		width: 100%; height: 88rpx; line-height: 88rpx; margin-top: 32rpx;
+		width: 100%; height: 88rpx; line-height: 88rpx; margin-top: 32rpx; margin-bottom: 0;
 		background: #003da6; color: #fff; border-radius: 16rpx; font-size: 28rpx; border: none;
 	}
-	.content {
-		margin-top: -48rpx; position: relative; z-index: 3;
-		background: #f5f3ef; border-radius: 32rpx 32rpx 0 0; padding: 32rpx;
+	.content-panel {
+		position: fixed;
+		left: 0;
+		right: 0;
+		z-index: 3;
+		background: #f5f3ef;
+		border-radius: 32rpx 32rpx 0 0;
+		padding: 8rpx 32rpx 0;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
+	.works-scroll {
+		width: 100%;
 		box-sizing: border-box;
 	}
-	.works-tab { padding: 16rpx 0 24rpx; }
+	.works-tab { padding: 4rpx 0 16rpx; flex-shrink: 0; }
 	.works-tab-active {
 		font-size: 32rpx; font-weight: 700; color: #003da6;
 		border-bottom: 4rpx solid #003da6; padding-bottom: 8rpx;
@@ -186,6 +240,7 @@
 		gap: 20rpx 0;
 		width: 100%;
 		box-sizing: border-box;
+		padding-bottom: 32rpx;
 	}
 	.work-card {
 		width: 48%;

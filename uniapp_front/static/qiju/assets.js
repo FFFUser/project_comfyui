@@ -55,27 +55,27 @@ export const ASSETS = {
 		'/static/qiju/stones/stone-1.jpg',
 		'/static/qiju/stones/stone-2.jpg',
 		'/static/qiju/stones/stone-3.jpg',
-		'/static/qiju/stones/stone-4.png'
+		'/static/qiju/stones/stone-4.jpg'
 	],
 	designers: {
 		// 卡片封面：装修成果图
-		covers: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/cover-${i + 1}.png`),
-		avatars: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/avatar-${i + 1}.png`)
+		covers: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/cover-${i + 1}.jpg`),
+		avatars: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/avatar-${i + 1}.jpg`)
 	},
 	profile: {
 		avatar: '/static/qiju/profile/avatar.jpg'
 	},
 	designerProfile: {
 		hero: '/static/qiju/designer-profile/hero.jpg',
-		avatar: '/static/qiju/designer-profile/avatar.png',
+		avatar: '/static/qiju/designer-profile/avatar.jpg',
 		works: [
 			'/static/qiju/designer-profile/work-1.jpg',
 			'/static/qiju/designer-profile/work-2.jpg',
 			'/static/qiju/designer-profile/work-3.jpg',
-			'/static/qiju/designer-profile/work-4.png'
+			'/static/qiju/designers/cover-1.jpg'
 		]
 	},
 	workDetail: {
-		hero: '/static/qiju/work-detail/hero.png'
+		hero: '/static/qiju/work-detail/hero.jpg'
 	}
 }
