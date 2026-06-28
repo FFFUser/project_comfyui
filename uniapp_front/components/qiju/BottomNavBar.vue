@@ -21,6 +21,7 @@
 
 <script>
 	import { ICONS } from '../../static/qiju/assets.js'
+	import { getBottomNavPaddingStyle } from '../../utils/page-layout.js'
 
 	const TAB_ROUTES = {
 		home: '/pages/home/home',
@@ -37,8 +38,7 @@
 		},
 		data() {
 			return {
-				safeBottom: 0,
-				basePaddingPx: 10,
+				navPaddingStyle: {},
 				tabs: [
 					{ key: 'home', label: '首页', icon: ICONS.navHome, iconActive: ICONS.navHomeActive },
 					{ key: 'workers', label: '工人', icon: ICONS.navWorkers, iconActive: ICONS.navWorkersActive },
@@ -48,17 +48,9 @@
 				]
 			}
 		},
-		computed: {
-			navPaddingStyle() {
-				return {
-					paddingBottom: this.safeBottom + this.basePaddingPx + 'px'
-				}
-			}
-		},
 		created() {
 			const sys = uni.getSystemInfoSync()
-			this.safeBottom = sys.safeAreaInsets ? sys.safeAreaInsets.bottom : 0
-			this.basePaddingPx = Math.round(20 * sys.windowWidth / 750)
+			this.navPaddingStyle = getBottomNavPaddingStyle(sys)
 		},
 		methods: {
 			onTap(item) {
@@ -76,19 +68,16 @@
 		right: 0;
 		bottom: 0;
 		z-index: 100;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		height: 128rpx;
-		padding: 0 78rpx;
+		padding-left: 78rpx;
+		padding-right: 78rpx;
 		background: #fdf9f2;
 		border-top: 1rpx solid rgba(195, 198, 215, 0.3);
-		box-sizing: content-box;
+		box-sizing: border-box;
 	}
 
 	.nav-row {
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		justify-content: space-between;
 		width: 100%;
 	}
@@ -98,7 +87,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 8rpx;
+		gap: 6rpx;
 	}
 
 	.nav-icon {

@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<TopAppBar variant="profile" />
+		<TopAppBar variant="home" />
 		<scroll-view scroll-y class="main" :bounces="false" :style="{ height: scrollHeight + 'px', width: '100%' }">
 			<view class="main-inner">
 			<view class="profile-header">
@@ -41,7 +41,7 @@
 				<view class="cta-content">
 					<text class="cta-title">发现更多家居灵感</text>
 					<text class="cta-sub">定制您的专属生活空间</text>
-					<button class="cta-btn">立即探索</button>
+					<button class="cta-btn" @click="goHome">立即探索</button>
 				</view>
 			</view>
 			<view class="scroll-spacer" />
@@ -72,6 +72,11 @@
 		onReady() {
 			const sys = uni.getSystemInfoSync()
 			this.scrollHeight = getScrollHeightPx(sys)
+		},
+		methods: {
+			goHome() {
+				uni.reLaunch({ url: '/pages/home/home' })
+			}
 		}
 	}
 </script>
