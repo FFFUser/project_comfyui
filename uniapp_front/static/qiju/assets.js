@@ -68,7 +68,12 @@ export const ASSETS = {
 	designerProfile: {
 		hero: '/static/qiju/designer-profile/hero.jpg',
 		avatar: '/static/qiju/designer-profile/avatar.png',
-		works: Array.from({ length: 4 }, (_, i) => `/static/qiju/designer-profile/work-${i + 1}.jpg`)
+		works: [
+			'/static/qiju/designer-profile/work-1.jpg',
+			'/static/qiju/designer-profile/work-2.jpg',
+			'/static/qiju/designer-profile/work-3.jpg',
+			'/static/qiju/designer-profile/work-4.png'
+		]
 	},
 	workDetail: {
 		hero: '/static/qiju/work-detail/hero.png'

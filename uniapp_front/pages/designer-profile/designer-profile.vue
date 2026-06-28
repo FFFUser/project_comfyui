@@ -25,7 +25,7 @@
 						<text v-for="tag in profile.tags" :key="tag" class="tag">{{ tag }}</text>
 					</view>
 				</view>
-				<button class="btn-follow">关注设计师</button>
+				<button class="btn-follow" @click="onBook">咨询预约</button>
 			</view>
 		</view>
 		<scroll-view scroll-y class="content" :style="{ height: scrollHeight + 'px' }">
@@ -44,7 +44,7 @@
 					<view class="work-info">
 						<text class="work-title">{{ work.title }}</text>
 						<view class="work-meta">
-							<text class="work-author">张馨予</text>
+							<text class="work-author">{{ profile.name }}</text>
 							<text class="work-likes">♥ {{ work.likes }}</text>
 						</view>
 					</view>
@@ -55,20 +55,20 @@
 </template>
 
 <script>
-	import { DESIGNER_PROFILE } from '../../mock/qiju-data.js'
+	import { DESIGNER_PROFILE, DESIGNERS } from '../../mock/qiju-data.js'
 
 	export default {
 		data() {
 			return {
-				profile: DESIGNER_PROFILE,
+				profile: { ...DESIGNER_PROFILE },
 				statusBarHeight: 20,
 				barInnerHeight: 56,
 				scrollHeight: 500,
 				workColors: ['#c8d4e0', '#d0d8c8', '#e0d0c8', '#d4cfc7'],
-				workHeights: ['460rpx', '460rpx', '430rpx', '346rpx']
+				workHeights: ['300rpx', '300rpx', '280rpx', '240rpx']
 			}
 		},
-		onLoad() {
+		onLoad(options) {
 			const sys = uni.getSystemInfoSync()
 			this.statusBarHeight = sys.statusBarHeight || 20
 			this.barInnerHeight = Math.round(112 * sys.windowWidth / 750)
@@ -80,9 +80,29 @@
 			}
 			// #endif
 
+			this.applyDesignerFromList(options)
+
 			this.scrollHeight = sys.windowHeight - 460 + 48
 		},
 		methods: {
+			applyDesignerFromList(options) {
+				const id = Number(options.id)
+				const designer = DESIGNERS.find(d => d.id === id)
+				if (!designer) return
+
+				this.profile = {
+					...DESIGNER_PROFILE,
+					name: designer.name,
+					avatar: designer.avatar,
+					hero: designer.cover,
+					tags: designer.tags,
+					location: `坐标${designer.location}`,
+					specialty: `擅长：${designer.category}${designer.tags[0] ? ' / ' + designer.tags[0] : ''}`
+				}
+			},
+			onBook() {
+				uni.showToast({ title: '预约 ' + this.profile.name, icon: 'none' })
+			},
 			onBack() {
 				uni.navigateBack({ fail: () => uni.reLaunch({ url: '/pages/designers/designers' }) })
 			},
@@ -111,19 +131,24 @@
 		padding: 0 48rpx;
 	}
 	.back-btn {
-		width: 80rpx;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		position: relative;
+		width: 64rpx;
+		height: 64rpx;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		flex-shrink: 0;
 	}
 	.back-icon {
-		font-size: 56rpx;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-54%, -52%);
+		font-size: 44rpx;
 		color: #fff;
 		line-height: 1;
 		font-weight: 300;
 	}
-	.hero-content { position: relative; z-index: 2; padding: 48rpx; margin-top: 80rpx; }
+	.hero-content { position: relative; z-index: 2; padding: 24rpx 48rpx 48rpx; margin-top: 8rpx; }
 	.avatar-row { display: flex; gap: 32rpx; }
 	.avatar {
 		width: 192rpx; height: 192rpx; border-radius: 50%;
@@ -147,16 +172,41 @@
 	.content {
 		margin-top: -48rpx; position: relative; z-index: 3;
 		background: #f5f3ef; border-radius: 32rpx 32rpx 0 0; padding: 32rpx;
+		box-sizing: border-box;
 	}
-	.works-tab { padding: 16rpx 0 32rpx; }
+	.works-tab { padding: 16rpx 0 24rpx; }
 	.works-tab-active {
 		font-size: 32rpx; font-weight: 700; color: #003da6;
 		border-bottom: 4rpx solid #003da6; padding-bottom: 8rpx;
 	}
-	.works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24rpx; }
-	.work-card { background: #fff; border-radius: 24rpx; overflow: hidden; }
-	.work-cover { width: 100%; height: 430rpx; display: block; }
-	.work-info { padding: 24rpx; }
-	.work-title { font-size: 26rpx; font-weight: 600; color: #1c1c18; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-	.work-meta { display: flex; justify-content: space-between; margin-top: 12rpx; font-size: 22rpx; color: #434654; }
+	.works-grid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 20rpx 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.work-card {
+		width: 48%;
+		background: #fff;
+		border-radius: 20rpx;
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+	.work-cover { width: 100%; height: 300rpx; display: block; }
+	.work-info { padding: 16rpx; box-sizing: border-box; }
+	.work-title {
+		font-size: 24rpx; font-weight: 600; color: #1c1c18; line-height: 1.4;
+		display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+		word-break: break-all;
+	}
+	.work-meta {
+		display: flex; justify-content: space-between; align-items: center;
+		margin-top: 8rpx; font-size: 20rpx; color: #434654; gap: 8rpx;
+	}
+	.work-author {
+		flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+	}
+	.work-likes { flex-shrink: 0; }
 </style>
