@@ -58,7 +58,8 @@ export const ASSETS = {
 		'/static/qiju/stones/stone-4.png'
 	],
 	designers: {
-		covers: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/cover-${i + 1}.jpg`),
+		// 卡片封面：装修成果图
+		covers: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/cover-${i + 1}.png`),
 		avatars: Array.from({ length: 3 }, (_, i) => `/static/qiju/designers/avatar-${i + 1}.png`)
 	},
 	profile: {

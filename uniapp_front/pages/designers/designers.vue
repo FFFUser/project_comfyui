@@ -12,15 +12,29 @@
 				>{{ tab }}</text>
 			</view>
 		</scroll-view>
-		<scroll-view scroll-y class="list" :bounces="false" :style="{ height: scrollHeight + 'px' }">
-			<DesignerCard
-				v-for="(d, i) in designers"
-				:key="d.id"
-				:designer="d"
-				:index="i"
-				@click="goProfile(d)"
-				@book="onBook(d)"
-			/>
+		<scroll-view
+			scroll-y
+			class="list"
+			:bounces="false"
+			:lower-threshold="80"
+			:scroll-top="scrollTop"
+			:style="{ height: scrollHeight + 'px' }"
+			@scroll="onListScroll"
+			@scrolltolower="onScrollToLower"
+		>
+			<view class="list-inner">
+				<DesignerCard
+					v-for="(d, i) in displayDesigners"
+					:key="d.id"
+					:designer="d"
+					:index="i"
+					@click="goProfile(d)"
+					@book="onBook(d)"
+				/>
+				<view v-if="showListFooter" class="list-footer">
+					<text class="list-footer-text">没有更多设计师了~</text>
+				</view>
+			</view>
 		</scroll-view>
 		<BottomNavBar current="designers" />
 	</view>
@@ -38,9 +52,32 @@
 		data() {
 			return {
 				tabs: DESIGNER_TABS,
-				designers: DESIGNERS,
+				allDesigners: DESIGNERS,
 				activeTab: 0,
-				scrollHeight: 500
+				scrollHeight: 500,
+				showNoMore: false,
+				scrollTop: 0,
+				scrollTopCache: 0
+			}
+		},
+		computed: {
+			displayDesigners() {
+				if (this.activeTab === 0) return this.allDesigners
+				const category = this.tabs[this.activeTab]
+				return this.allDesigners.filter(d => d.category === category)
+			},
+			showListFooter() {
+				if (!this.displayDesigners.length) return true
+				return this.showNoMore
+			}
+		},
+		watch: {
+			activeTab() {
+				this.showNoMore = false
+				this.scrollTop = this.scrollTopCache
+				this.$nextTick(() => {
+					this.scrollTop = 0
+				})
 			}
 		},
 		onReady() {
@@ -49,6 +86,14 @@
 			this.scrollHeight = getScrollHeightPx(sys, subTabsHeight)
 		},
 		methods: {
+			onListScroll(e) {
+				this.scrollTopCache = e.detail.scrollTop
+			},
+			onScrollToLower() {
+				if (this.displayDesigners.length) {
+					this.showNoMore = true
+				}
+			},
 			goProfile(d) {
 				uni.navigateTo({ url: '/pages/designer-profile/designer-profile?id=' + d.id })
 			},
@@ -73,5 +118,21 @@
 		content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
 		width: 32rpx; height: 6rpx; background: #003da6; border-radius: 3rpx;
 	}
-	.list { padding: 16rpx 32rpx; }
+	.list {
+		box-sizing: border-box;
+	}
+	.list-inner {
+		padding: 8rpx 32rpx 16rpx;
+		box-sizing: border-box;
+	}
+	.list-footer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 32rpx 0 48rpx;
+	}
+	.list-footer-text {
+		font-size: 24rpx;
+		color: #969799;
+	}
 </style>

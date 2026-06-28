@@ -72,9 +72,16 @@ export const STONE_MATERIALS = [
 export const DESIGNER_TABS = ['全部', '现代简约', '意式轻奢', '法式浪漫', '侘寂风', '新中式']
 
 export const DESIGNERS = [
-	{ id: 1, name: '林语堂', rating: '4.9', projects: '128套', tags: ['现代简约', '全案设计', '别墅专精'], price: '¥280', unit: '/㎡', featured: true, badge: 'TOP设计师', cover: ASSETS.designers.covers[0], avatar: ASSETS.designers.avatars[0] },
-	{ id: 2, name: '周雅文', rating: '4.8', projects: '86套', tags: ['意式轻奢', '软装搭配', '空间规划'], price: '¥220', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[1], avatar: ASSETS.designers.avatars[1] },
-	{ id: 3, name: '吴思远', rating: '4.7', projects: '64套', tags: ['侘寂风', '自然材质', '禅意空间'], price: '¥260', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[2], avatar: ASSETS.designers.avatars[2] }
+	{ id: 1, category: '现代简约', name: '陈梦溪', rating: '4.8', location: '杭州', tags: ['5年经验', '极简线条', '收纳达人'], price: '¥200', unit: '/㎡', featured: true, badge: 'TOP设计师', cover: ASSETS.designers.covers[0], avatar: ASSETS.designers.avatars[0] },
+	{ id: 2, category: '意式轻奢', name: '周雅文', rating: '4.8', location: '上海', tags: ['8年经验', '软装搭配', '空间规划'], price: '¥220', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[1], avatar: ASSETS.designers.avatars[1] },
+	{ id: 3, category: '侘寂风', name: '吴思远', rating: '4.7', location: '成都', tags: ['6年经验', '自然材质', '禅意空间'], price: '¥260', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[2], avatar: ASSETS.designers.avatars[2] },
+	{ id: 4, category: '现代简约', name: '林清远', rating: '4.9', location: '北京', tags: ['10年经验', '小户型', '全案设计'], price: '¥180', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[1], avatar: ASSETS.designers.avatars[2] },
+	{ id: 5, category: '法式浪漫', name: '苏婉宁', rating: '4.8', location: '南京', tags: ['7年经验', '法式线条', '浪漫氛围'], price: '¥240', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[0], avatar: ASSETS.designers.avatars[1] },
+	{ id: 6, category: '法式浪漫', name: '沈若琳', rating: '4.6', location: '广州', tags: ['5年经验', '雕花石膏', '轻奢法式'], price: '¥230', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[2], avatar: ASSETS.designers.avatars[0] },
+	{ id: 7, category: '侘寂风', name: '赵静禅', rating: '4.9', location: '厦门', tags: ['9年经验', '微水泥', '留白美学'], price: '¥280', unit: '/㎡', featured: false, badge: '人气设计师', cover: ASSETS.designers.covers[0], avatar: ASSETS.designers.avatars[2] },
+	{ id: 8, category: '新中式', name: '张雅庭', rating: '4.7', location: '苏州', tags: ['12年经验', '东方美学', '园林借景'], price: '¥250', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[1], avatar: ASSETS.designers.avatars[0] },
+	{ id: 9, category: '新中式', name: '李承韵', rating: '4.8', location: '西安', tags: ['8年经验', '木作定制', '对称布局'], price: '¥270', unit: '/㎡', featured: false, cover: ASSETS.designers.covers[2], avatar: ASSETS.designers.avatars[1] },
+	{ id: 10, category: '意式轻奢', name: '顾明轩', rating: '4.9', location: '深圳', tags: ['11年经验', '大理石', '意式极简'], price: '¥300', unit: '/㎡', featured: false, badge: 'TOP设计师', cover: ASSETS.designers.covers[2], avatar: ASSETS.designers.avatars[0] }
 ]
 
 export const PROFILE_QUICK_LINKS = [
