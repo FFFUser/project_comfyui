@@ -4,8 +4,10 @@
 			<image class="hero-bg-img" :src="profile.hero" mode="aspectFill" />
 			<view class="hero-bg" />
 			<view class="hero-gradient" />
-			<view class="nav-bar">
-				<view class="back-btn" @click="onBack"><text>‹</text></view>
+			<view class="nav-bar" :style="{ height: barInnerHeight + 'px' }">
+				<view class="back-btn" @click="onBack">
+					<text class="back-icon">‹</text>
+				</view>
 			</view>
 			<view class="hero-content">
 				<view class="avatar-row">
@@ -60,6 +62,7 @@
 			return {
 				profile: DESIGNER_PROFILE,
 				statusBarHeight: 20,
+				barInnerHeight: 56,
 				scrollHeight: 500,
 				workColors: ['#c8d4e0', '#d0d8c8', '#e0d0c8', '#d4cfc7'],
 				workHeights: ['460rpx', '460rpx', '430rpx', '346rpx']
@@ -68,6 +71,15 @@
 		onLoad() {
 			const sys = uni.getSystemInfoSync()
 			this.statusBarHeight = sys.statusBarHeight || 20
+			this.barInnerHeight = Math.round(112 * sys.windowWidth / 750)
+
+			// #ifdef MP-WEIXIN
+			const menuButton = uni.getMenuButtonBoundingClientRect()
+			if (menuButton && menuButton.height) {
+				this.barInnerHeight = (menuButton.top - this.statusBarHeight) * 2 + menuButton.height
+			}
+			// #endif
+
 			this.scrollHeight = sys.windowHeight - 460 + 48
 		},
 		methods: {
@@ -91,14 +103,25 @@
 		background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7));
 	}
 	.nav-bar {
-		position: relative; z-index: 2;
-		display: flex; justify-content: space-between; align-items: center;
-		padding: 16rpx 48rpx;
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+		padding: 0 48rpx;
 	}
 	.back-btn {
-		width: 80rpx; height: 80rpx; background: rgba(255,255,255,0.2);
-		border-radius: 50%; display: flex; align-items: center; justify-content: center;
-		font-size: 48rpx; color: #fff;
+		width: 80rpx;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.back-icon {
+		font-size: 56rpx;
+		color: #fff;
+		line-height: 1;
+		font-weight: 300;
 	}
 	.hero-content { position: relative; z-index: 2; padding: 48rpx; margin-top: 80rpx; }
 	.avatar-row { display: flex; gap: 32rpx; }
